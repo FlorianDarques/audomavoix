@@ -1,0 +1,37 @@
+@media (min-width: 0px) {
+.bg-navbar-perso {
+    background: rgba(0, 0, 0, 0.7);
+}
+.navbar-nav {
+    gap: 10px;
+}
+.navbar-nav li {
+    border: 1px solid #B8B8B8;
+    border-radius: 10px;
+    width: 70px;
+    text-align-last: center;
+}
+.navbar-nav li a i {
+    color: #B8B8B8;
+    font-size: larger;
+}
+.navbar-collapse{
+    margin-right: 2em;
+}
+.logo-av {
+    margin-left: 0.5em;
+}
+.navbar-expand-lg .navbar-collapse {
+    display: flex!important;
+    flex-basis: auto;
+    justify-content: flex-end;
+}
+.navbar-expand-lg {
+    flex-wrap: nowrap;
+    justify-content: flex-start; 
+}
+.navbar-nav{
+    flex-direction: row;
+}
+
+}
