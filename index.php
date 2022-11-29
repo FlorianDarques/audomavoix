@@ -3,7 +3,7 @@
 ?>
 
     <div class="background_video">
-        <video src=""></video>
+        <video autoplay muted loop  src="video/bg.mp4"></video>
     </div>
 
 <?php
