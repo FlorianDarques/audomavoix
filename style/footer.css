@@ -1,0 +1,19 @@
+@media screen and (min-width:0px) {
+.container-footer {
+    position: fixed;
+    bottom: 0px;
+    width: 100%;
+    display: flex;
+    align-items: flex-end;
+    flex-direction: row;
+}
+.container-footer div {
+    position: absolute;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+.container-footer div p {
+    color: white;
+}
+}
