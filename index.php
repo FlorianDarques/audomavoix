@@ -1,12 +1,14 @@
 <?php 
-    require_once "includes/header.php"; 
+    require_once "includes/header.php"; //---Inclus le header + ouvre le body---//
 ?>
 
     <div class="background_video">
 
         <video autoplay muted loop  src="video/bg.mp4"></video>
 
-        <?php require_once "includes/nav.php"; ?>
+        <?php 
+            require_once "includes/nav.php"; //---Inclus la navbar---//
+        ?>
 
         <div class="presentation_box">
 
@@ -28,12 +30,12 @@
 
         <div class="btn_inscription">
 
-        <button type="submit">S'inscire !</button>
+        <button type="submit">S'inscrire !</button>
 
         </div>
 
     </div>
 
 <?php
-    require_once "includes/footer.php";
+    require_once "includes/footer.php"; //---Inclus le footer + ferme le body et html---//
 ?>
