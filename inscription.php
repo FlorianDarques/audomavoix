@@ -47,7 +47,7 @@
                 <div class="form_inscription_group">
 
                     <input type="password" class="form_inscription_field" placeholder="Mot de passe" name="password">
-                    <label for="password" class="form_inscription_label"> <i class="fa-solid fa-lock"></i> Mot de passe</label>
+                    <label for="confirmpassword" class="form_inscription_label"> <i class="fa-solid fa-lock"></i> Mot de passe</label>
 
                 </div>
 
