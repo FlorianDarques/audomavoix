@@ -16,17 +16,17 @@
 
             <form action="" method="post">
 
-                <div class="form__group field">
+                <div class="form_connexion_group">
 
-                    <input type="email" class="form__field" placeholder="Adresse email" name="email">
-                    <label for="email" class="form__label"> <i class="fa-regular fa-envelope"></i> Adresse email</label>
+                    <input type="email" class="form_connexion_field" placeholder="Adresse email" name="email">
+                    <label for="email" class="form_connexion_label"> <i class="fa-regular fa-envelope"></i> Adresse email</label>
 
                 </div>
 
-                <div class="form__group field">
+                <div class="form_connexion_group">
 
-                    <input type="password" class="form__field" placeholder="Mot de passe" name="password">
-                    <label for="password" class="form__label"> <i class="fa-solid fa-lock"></i> Mot de passe</label>
+                    <input type="password" class="form_connexion_field" placeholder="Mot de passe" name="password">
+                    <label for="password" class="form_connexion_label"> <i class="fa-solid fa-lock"></i> Mot de passe</label>
 
                 </div>
 
