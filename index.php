@@ -30,7 +30,7 @@
 
         <div class="btn_inscription">
 
-        <button type="submit">S'inscrire !</button>
+        <a href="#" class="a_inscription">S'enregistrer</a>
 
         </div>
 
