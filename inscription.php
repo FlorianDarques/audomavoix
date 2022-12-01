@@ -14,7 +14,7 @@
 
             <h1 class="h1_inscription">INSCRIPTION</h1>
 
-            <form action="" method="post">
+            <form action="inscriptionauth.php" method="post">
 
                 <div class="form_inscription_group">
 
