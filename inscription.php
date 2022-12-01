@@ -14,7 +14,7 @@
 
             <h1 class="h1_inscription">INSCRIPTION</h1>
 
-            <form action="" method="post">
+            <form action="inscriptionauth.php" method="post">
 
                 <div class="form_inscription_group">
 
@@ -47,7 +47,7 @@
                 <div class="form_inscription_group">
 
                     <input type="password" class="form_inscription_field" placeholder="Mot de passe" name="password">
-                    <label for="password" class="form_inscription_label"> <i class="fa-solid fa-lock"></i> Mot de passe</label>
+                    <label for="confirmpassword" class="form_inscription_label"> <i class="fa-solid fa-lock"></i> Mot de passe</label>
 
                 </div>
 
