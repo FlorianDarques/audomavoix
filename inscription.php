@@ -14,7 +14,7 @@
 
             <h1 class="h1_inscription">INSCRIPTION</h1>
 
-            <form action="" method="post">
+            <form action="" method="post" class="the-form">
 
                 <div class="form_inscription_group">
 

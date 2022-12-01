@@ -14,7 +14,7 @@
 
             <h1 class="h1_connexion">CONNEXION</h1>
 
-            <form action="" method="post">
+            <form action="" method="post" class="the-form">
 
                 <div class="form_connexion_group">
 
@@ -42,8 +42,7 @@
 
         </div>
 
-    </div>
-
 <?php
     require_once "includes/footer.php"; //---Inclus le footer + ferme le body et html---//
 ?>
+    </div>

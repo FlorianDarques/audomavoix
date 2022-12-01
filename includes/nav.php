@@ -6,7 +6,7 @@
     <div class="collapse navbar-collapse" id="navbarNavDropdown">
         <ul class="navbar-nav">
             <li class="nav-item active">
-                <a class="nav-link" href="../audomavoix/connexion.php"><i class="fa-regular fa-user"></i></a>
+                <a class="nav-link" href="../audomavoix/connexion.php"><i class=" fa-regular fa-user"></i></a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="#"><i class="fa-regular fa-moon"></i></a>

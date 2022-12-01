@@ -1,6 +1,5 @@
 .connexion_box {
     width: 40%;
-    height: 60vh;
     background: rgba(0, 0, 0, 0.7);
     margin: auto;
     margin-top: 10vh;
@@ -55,20 +54,8 @@
 }
 
 .form_connexion_field:focus {
-    padding-bottom: 6px;
-    font-weight: 700;
-    border-width: 3px;
-    border-image: linear-gradient(to right, white, #B8B8B8);
+    border-image: linear-gradient(to right, white, #ffffff);
     border-image-slice: 1;
-}
-.form_connexion_field:focus ~ .form_connexion_label {
-    position: absolute;
-    top: 0;
-    display: block;
-    transition: 0.2s;
-    font-size: 1rem;
-    color: white;
-    font-weight: 700;
 }
 
 /* reset input */
@@ -80,6 +67,13 @@
     margin-top: 20%;
     display: flex;
     justify-content: center;
+}
+
+.form_connexion_field:placeholder-shown ~ .form_connexion_label {
+    font-size: 1.2rem;
+    cursor: text;
+    top: 20px;
+    width: 30vh;
 }
 
 .connexion_btn {
