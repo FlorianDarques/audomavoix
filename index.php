@@ -30,7 +30,7 @@
 
         <div class="btn_inscription">
 
-        <a href="#" class="a_inscription">S'enregistrer</a>
+        <a href="inscription.php" class="a_inscription">S'enregistrer</a>
 
         </div>
 
