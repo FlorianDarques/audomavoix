@@ -33,9 +33,7 @@
         <a href="inscription.php" class="a_inscription">S'enregistrer</a>
 
         </div>
-
+    <?php
+        require_once "includes/footer.php"; //---Inclus le footer + ferme le body et html---//
+    ?>
     </div>
-
-<?php
-    require_once "includes/footer.php"; //---Inclus le footer + ferme le body et html---//
-?>

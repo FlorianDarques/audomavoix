@@ -70,8 +70,7 @@
 
         </div>
 
-    </div>
-
 <?php
     require_once "includes/footer.php"; //---Inclus le footer + ferme le body et html---//
 ?>
+    </div>
