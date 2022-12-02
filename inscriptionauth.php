@@ -53,6 +53,32 @@ if(!empty($_POST)) {
                 $_SESSION["error"] = ["L'email est déjà utilisé"];
             }
         }
-        // le suite 
+        // la suite si pas d'erreur
+        if ($_SESSION["error"] === []) {
+            $sql = "INSERT INTO `Member`(`ID`, `lastname`, `firstname`, `age`, `email`, `pass`) VALUES (':lastname',':firstname',':age',':email','$pass')";
+            $query = $db->prepare($sql);
+            // on attribue dans la bdd les données des variables obtenus par la méthode "post"
+            $query->bindValue(":lastname", $lastname, PDO::PARAM_STR);
+            $query->bindValue(":firstname", $firstname, PDO::PARAM_STR);
+            $query->bindValue(":age", $age, PDO::PARAM_STR);
+            $query->bindValue(":email", $email, PDO::PARAM_STR);
+            $query->execute();
+            // création d'une var ID où on lui attribue l'A_I ID de la dernière rangée. 
+            $id = $db->lastInsertId();
+            $_SESSION["user"] = [
+                "id" => $id,
+                "lastname" => $lastname,
+                "firstname" => $firstname,
+                "age" => $age,
+                "email" => $email
+            ];
+            // si tout est bon, l'utilisateur est redirigé vers la page
+            header("Location: index.php");
+        }
+
+    }
+    else {
+        $_SESSION["error"] = ["Erreur"];
+        
     }
 }
