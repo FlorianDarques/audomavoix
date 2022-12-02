@@ -1,6 +1,5 @@
 .inscription_box {
     width: 40%;
-    height: 80vh;
     background: rgba(0, 0, 0, 0.7);
     margin: auto;
     margin-top: 5vh;
@@ -43,6 +42,7 @@
     font-size: 1.2rem;
     cursor: text;
     top: 20px;
+    width: 30vh;
 }
   
 .form_inscription_label {
@@ -53,23 +53,14 @@
     font-size: 1rem;
     color: #B8B8B8;
 }
-
+.the-form{
+    margin-bottom: 5vh;
+} 
 .form_inscription_field:focus {
-    padding-bottom: 6px;
-    font-weight: 700;
-    border-width: 3px;
-    border-image: linear-gradient(to right, white, #B8B8B8);
+    border-image: linear-gradient(to right, white, #ffffff);
     border-image-slice: 1;
 }
-.form_inscription_field:focus ~ .form__label {
-    position: absolute;
-    top: 0;
-    display: block;
-    transition: 0.2s;
-    font-size: 1rem;
-    color: white;
-    font-weight: 700;
-}
+
 
 /* reset input */
 .form_inscription_field:required, .form_inscription_field:invalid {
