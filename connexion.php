@@ -25,8 +25,8 @@
 
                 <div class="form_connexion_group">
 
-                    <input type="password" class="form_connexion_field" placeholder="Mot de passe" name="password">
-                    <label for="password" class="form_connexion_label"> <i class="fa-solid fa-lock"></i> Mot de passe</label>
+                    <input type="password" class="form_connexion_field" placeholder="Mot de passe" name="pass">
+                    <label for="pass" class="form_connexion_label"> <i class="fa-solid fa-lock"></i> Mot de passe</label>
 
                 </div>
 
