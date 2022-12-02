@@ -14,7 +14,7 @@
 
             <h1 class="h1_inscription">INSCRIPTION</h1>
 
-            <form action="" method="post" class="the-form">
+            <form action="inscriptionauth.php" method="post" class="the-form">
 
                 <div class="form_inscription_group">
 
@@ -53,8 +53,8 @@
 
                 <div class="form_inscription_group">
 
-                    <input type="password" class="form_inscription_field" placeholder="Confirmer mdp" name="password">
-                    <label for="password" class="form_inscription_label"> <i class="fa-solid fa-lock"></i> Confirmer mdp</label>
+                    <input type="password" class="form_inscription_field" placeholder="Confirmer mdp" name="confirmpassword">
+                    <label for="confirmpassword" class="form_inscription_label"> <i class="fa-solid fa-lock"></i> Confirmer mdp</label>
 
                 </div>
 

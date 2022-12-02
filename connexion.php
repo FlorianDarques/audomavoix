@@ -14,7 +14,7 @@
 
             <h1 class="h1_connexion">CONNEXION</h1>
 
-            <form action="" method="post" class="the-form">
+            <form action="connexionauth.php" method="post" class="the-form">
 
                 <div class="form_connexion_group">
 

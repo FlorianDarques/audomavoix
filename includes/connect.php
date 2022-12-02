@@ -7,7 +7,7 @@ $dbuser = "root";           // mdp de la bdd
 // test en try and catch
 try {
     // nom de votre choix pour la variable , dsn = data source name
-    $dsn = "mysql:dbname=" . $dbname . ";host=" . $dbhost;
+    $dsn = "mysql:dbname=".$dbname.";host=".$dbhost;
     // pdo = connexion entre php et une bdd
     $db = new PDO($dsn, $dbuser, $dbpass);
     // setup de l'utf8 (les accents)
