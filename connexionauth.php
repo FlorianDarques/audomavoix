@@ -7,8 +7,6 @@ session_start();
 
 $email = $_POST["email"];
 $pass = $_POST["pass"];
-$emailadmin = "admin@gmail.com";
-$passadmin = "admin";
 
 if (!empty($_POST)) {
     if (isset($email, $pass) && !empty($email) && !empty($pass)) {
@@ -17,14 +15,9 @@ if (!empty($_POST)) {
             $_SESSION["error"][] = "Adresse email ou mot de passe incorrect";
         }
         if ($_SESSION["error"] === []) {
-
-            if ($email === $emailadmin AND $pass === $passadmin) {
-                $_SESSION["admin"] = true;
-                header("Location: admin/index.php");
-            }
-            else {
             
             require "includes/connect.php";
+
             $sql = "SELECT * FROM `Member` WHERE `email` = :email";
             $query = $db->prepare($sql);
             $query->bindValue(":email", $email, PDO::PARAM_STR);
@@ -36,10 +29,15 @@ if (!empty($_POST)) {
             } else if ($pass != $user["pass"]) {
                 $_SESSION["error"][] = "Utilisateur ou mot de passe incorrect";
             }
-            if ($_SESSION["error"] === []) {
+            if ($_SESSION["error"] === [] && $user["admin"] != NULL) {
+                $_SESSION["admin"] = true;
+                header("Location: admin/index.php");
+            } else if ($_SESSION["error"] === [] && $user["admin"] === NULL){
                 header("Location: index.php");
+            } else {
+                header("Location: connexion.php");
             }
         }
     }
-}}
+}
 ?>
