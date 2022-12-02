@@ -18,15 +18,15 @@
 
                 <div class="form_inscription_group">
 
-                    <input type="text" class="form_inscription_field" placeholder="Nom" name="name">
-                    <label for="name" class="form_inscription_label"> <i class="fa-regular fa-user"></i> Nom</label>
+                    <input type="text" class="form_inscription_field" placeholder="Nom" name="lastname">
+                    <label for="lastname" class="form_inscription_label"> <i class="fa-regular fa-user"></i> Nom</label>
 
                 </div>
 
                 <div class="form_inscription_group">
 
-                    <input type="text" class="form_inscription_field" placeholder="Prénom" name="surname">
-                    <label for="surname" class="form_inscription_label"> <i class="fa-regular fa-user"></i> Prénom</label>
+                    <input type="text" class="form_inscription_field" placeholder="Prénom" name="firstname">
+                    <label for="firstname" class="form_inscription_label"> <i class="fa-regular fa-user"></i> Prénom</label>
 
                 </div>
 
@@ -46,14 +46,14 @@
 
                 <div class="form_inscription_group">
 
-                    <input type="password" class="form_inscription_field" placeholder="Mot de passe" name="password">
-                    <label for="password" class="form_inscription_label"> <i class="fa-solid fa-lock"></i> Mot de passe</label>
+                    <input type="password" class="form_inscription_field" placeholder="Mot de passe" name="pass">
+                    <label for="passw" class="form_inscription_label"> <i class="fa-solid fa-lock"></i> Mot de passe</label>
 
                 </div>
 
                 <div class="form_inscription_group">
 
-                    <input type="password" class="form_inscription_field" placeholder="Confirmer mdp" name="confirmpassword">
+                    <input type="password" class="form_inscription_field" placeholder="Confirmer mdp" name="confirmpass">
                     <label for="confirmpassword" class="form_inscription_label"> <i class="fa-solid fa-lock"></i> Confirmer mdp</label>
 
                 </div>
