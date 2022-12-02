@@ -66,3 +66,24 @@
 .form_inscription_field:required, .form_inscription_field:invalid {
     box-shadow: none;
 }
+
+body.light .inscription_box {
+    background: rgba(255, 255, 255, 0.7);
+}
+
+body.light .h1_inscription {
+    color: black;
+}
+
+body.light .form_inscription_field {
+    border-bottom: 2px solid rgb(36, 36, 36);
+    color: black;
+}
+
+body.light .form_inscription_label {
+    color: rgb(36, 36, 36);
+}
+
+body.light .form_inscription_field:focus {
+    border-image: linear-gradient(to right, black, rgb(36, 36, 36));
+}

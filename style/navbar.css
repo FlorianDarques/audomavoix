@@ -34,4 +34,16 @@
     flex-direction: row;
 }
 
+body.light .bg-navbar-perso {
+    background: rgba(255, 255, 255, 0.7);
+}
+
+body.light .navbar-nav li {
+    border: 1px solid black;
+}
+
+body.light .navbar-nav li a i {
+    color: black;
+}
+
 }

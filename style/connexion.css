@@ -87,3 +87,34 @@
 .icon_arrow {
     color: white;
 }
+
+body.light .connexion_box {
+    background: rgba(255, 255, 255, 0.7);
+}
+
+body.light .h1_connexion {
+    color: black;
+}
+
+body.light .form_connexion_field {
+    border-bottom: 2px solid rgb(36, 36, 36);
+    color: black;
+}
+
+body.light .form_connexion_label {
+    color: rgb(36, 36, 36);
+}
+
+body.light .form_connexion_field:focus {
+    border-image: linear-gradient(to right, black, rgb(36, 36, 36));
+}
+
+body.light .connexion_btn {
+    background: rgba(217, 217, 217, 0.15);
+    border: 1px solid black;
+}
+
+body.light .icon_arrow {
+    color: black;
+}
+

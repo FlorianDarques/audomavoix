@@ -8,7 +8,7 @@
             <li class="nav-item active">
                 <a class="nav-link" href="../audomavoix/connexion.php"><i class=" fa-regular fa-user"></i></a>
             </li>
-            <li class="nav-item">
+            <li class="nav-item darkmode">
                 <a class="nav-link" href="#"><i class="fa-regular fa-moon"></i></a>
             </li>
         </ul>
