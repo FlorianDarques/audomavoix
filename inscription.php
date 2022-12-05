@@ -56,7 +56,7 @@ if(!empty($_POST)) {
         
         // la suite si pas d'erreur
         if ($_SESSION["error"] === []) {
-            $sql = "INSERT INTO `member`(`lastname`, `firstname`, `age`, `email`, `pass`) VALUES (':lastname',':firstname',':age',':email','$pass')";
+            $sql = "INSERT INTO `member`(`lastname`, `firstname`, `age`, `email`, `pass`) VALUES (:lastname,:firstname,:age,:email,'$pass')";
             $query = $db->prepare($sql);
             // on attribue dans la bdd les données des variables obtenus par la méthode "post"
             $query->bindValue(":lastname", $lastname, PDO::PARAM_STR);
