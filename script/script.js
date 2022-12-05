@@ -20,6 +20,7 @@ btnDarkMode.addEventListener("click", () => {
     } else if (body.classList.contains("dark")){
 
         body.classList.add("light");
+        document.querySelector('fa-moon').className = "fa-regular fa-sun"
         body.classList.remove("dark");
 
     }
