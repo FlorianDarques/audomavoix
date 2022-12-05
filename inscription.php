@@ -1,10 +1,5 @@
 <?php 
 session_start();
-if (isset($_SESSION["user"])) {
-    header("Location: index.php");
-    exit;
-}
-
 // si mes input du form en method POST sont différent d'un champ vide (donc plein)
 if(!empty($_POST)) {
     if(isset($_POST["firstname"], $_POST["lastname"], $_POST["age"], $_POST["email"], $_POST["pass"], $_POST["confirmpass"]) && !empty($_POST["lastname"]) && !empty($_POST["firstname"]) && !empty($_POST["age"]) && !empty($_POST["email"]) && !empty($_POST["pass"]) && !empty($_POST["confirmpass"]) ) {
