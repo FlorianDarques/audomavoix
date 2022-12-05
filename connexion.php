@@ -1,3 +1,45 @@
+<?php
+session_start();
+// if (!isset($_SESSION["user"])) {
+//     header("Location: connexion.php");
+//     exit;
+// }
+
+$email = $_POST["email"];
+$pass = $_POST["pass"];
+
+if (!empty($_POST)) {
+    if (isset($email, $pass) && !empty($email) && !empty($pass)) {
+        $_SESSION["error"] = [];
+        if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+            $_SESSION["error"][] = "Adresse email ou mot de passe incorrect";
+        }
+        if ($_SESSION["error"] === []) {
+            
+            require "includes/connect.php";
+
+            $sql = "SELECT * FROM `member` WHERE `email` = :email";
+            $query = $db->prepare($sql);
+            $query->bindValue(":email", $email, PDO::PARAM_STR);
+            $query->execute();
+            $user = $query->fetch();
+
+            if (!$user) {
+                $_SESSION["error"][] = "Utilisateur ou mot de passe incorrect";
+            } else if (!password_verify($_POST["pass"], $user["pass"])) {
+                $_SESSION["error"][] = "Utilisateur ou mot de passe incorrect";
+            }
+            if ($_SESSION["error"] === [] && $user["admin"] != NULL) {
+                $_SESSION["admin"] = true;
+                header("Location: admin/index.php");
+            } if ($_SESSION["error"] === [] && $user["admin"] === NULL){
+                header("Location: member.php");
+            } 
+        }
+    }
+}
+?>
+
 <?php 
     require_once "includes/header.php"; //---Inclus le header + ouvre le body---//
 ?>
@@ -14,18 +56,18 @@
 
             <h1 class="h1_connexion">CONNEXION</h1>
 
-            <form action="connexionauth.php" method="post" class="the-form">
+            <form action="" method="POST" class="the-form">
 
                 <div class="form_connexion_group">
 
-                    <input type="email" class="form_connexion_field" placeholder="Adresse email" name="email">
+                    <input type="email" class="form_connexion_field" placeholder="Adresse email" name="email" required>
                     <label for="email" class="form_connexion_label"> <i class="fa-regular fa-envelope"></i> Adresse email</label>
 
                 </div>
 
                 <div class="form_connexion_group">
 
-                    <input type="password" class="form_connexion_field" placeholder="Mot de passe" name="pass">
+                    <input type="password" class="form_connexion_field" placeholder="Mot de passe" name="pass" required>
                     <label for="pass" class="form_connexion_label"> <i class="fa-solid fa-lock"></i> Mot de passe</label>
 
                 </div>

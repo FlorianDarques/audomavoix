@@ -1,10 +1,5 @@
-<?php 
+<?php
 session_start();
-if(isset($_SESSION["user"])) {
-    header("location: index.php");
-    exit;
-}
-
 // si mes input du form en method POST sont différent d'un champ vide (donc plein)
 if(!empty($_POST)) {
     if(isset($_POST["firstname"], $_POST["lastname"], $_POST["age"], $_POST["email"], $_POST["pass"], $_POST["confirmpass"]) && !empty($_POST["lastname"]) && !empty($_POST["firstname"]) && !empty($_POST["age"]) && !empty($_POST["email"]) && !empty($_POST["pass"]) && !empty($_POST["confirmpass"]) ) {
@@ -45,7 +40,7 @@ if(!empty($_POST)) {
             require_once "includes/connect.php";
             // email unique
             $email= strtolower($_POST["email"]);
-            $sql = "SELECT * FROM `Member` WHERE email = ?";
+            $sql = "SELECT * FROM `member` WHERE email = ?";
             $query = $db->prepare($sql);
             $query->bindValue(1, $email, PDO::PARAM_STR);
             $query->execute();
@@ -56,7 +51,7 @@ if(!empty($_POST)) {
         
         // la suite si pas d'erreur
         if ($_SESSION["error"] === []) {
-            $sql = "INSERT INTO `Member`(`lastname`, `firstname`, `age`, `email`, `pass`) VALUES (':lastname',':firstname',':age',':email','$pass')";
+            $sql = "INSERT INTO `member`(`lastname`, `firstname`, `age`, `email`, `pass`) VALUES (:lastname,:firstname,:age,:email,'$pass')";
             $query = $db->prepare($sql);
             // on attribue dans la bdd les données des variables obtenus par la méthode "post"
             $query->bindValue(":lastname", $lastname, PDO::PARAM_STR);
@@ -88,6 +83,14 @@ if(!empty($_POST)) {
     require_once "includes/header.php"; //---Inclus le header + ouvre le body---//
 ?>
 
+    <div class="background_video">
+
+        <video autoplay muted loop  src="video/bg.mp4"></video>
+
+        <?php 
+            require_once "includes/nav.php"; //---Inclus la navbar---//
+        ?>
+
 <?php
     if(isset($_SESSION["error"])) {
         foreach($_SESSION["error"] as $message) {
@@ -99,13 +102,6 @@ if(!empty($_POST)) {
     }
 ?>
 
-    <div class="background_video">
-
-        <video autoplay muted loop  src="video/bg.mp4"></video>
-
-        <?php 
-            require_once "includes/nav.php"; //---Inclus la navbar---//
-        ?>
 
         <div class="inscription_box">
 
@@ -166,6 +162,10 @@ if(!empty($_POST)) {
             </form>
 
         </div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/js/bootstrap.min.js"></script>
 
 <?php
     require_once "includes/footer.php"; //---Inclus le footer + ferme le body et html---//
