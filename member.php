@@ -11,22 +11,22 @@
         ?>
 
         <div>API</div>
-
-        <div>
+        <div class="container-upload">
 
             <h1>Joignez votre enregistrement</h1>
 
-            <form action="memberphp.php" method="post" enctype="multipart/form-data">
-
-                <input type="file" name="file_mp3">
-                <button type="submit">ENVOYER</button>
+            <form action="memberphp.php" method="post" enctype="multipart/form-data" class="form-upload">
+                <label class="labelmp3" for="fileInput"><i class="fa-solid fa-download"></i></label>
+                <input type="file" id="fileInput" class="fileofmp3" name="file_mp3"></input>
+                <button type="submit" class="button-upload">Valider</button>
 
             </form>
 
         </div>
-
-
-<?php
+        <?php
     require_once "includes/footer.php"; //---Inclus le footer + ferme le body et html---//
 ?>
+    </div>
+
+
     </div>

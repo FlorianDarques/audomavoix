@@ -11,6 +11,7 @@
     <link rel="stylesheet" href="../../audomavoix/style/footer.css">
     <link rel="stylesheet" href="../audomavoix/style/connexion.css">
     <link rel="stylesheet" href="../audomavoix/style/inscription.css">
+    <link rel="stylesheet" href="../audomavoix/style/member.css">
     <script src="../audomavoix/script/script.js" defer></script>
   </head>
   <body class="dark">

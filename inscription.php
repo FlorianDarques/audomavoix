@@ -40,7 +40,7 @@ if(!empty($_POST)) {
             require_once "includes/connect.php";
             // email unique
             $email= strtolower($_POST["email"]);
-            $sql = "SELECT * FROM `member` WHERE email = ?";
+            $sql = "SELECT * FROM `Member` WHERE email = ?";
             $query = $db->prepare($sql);
             $query->bindValue(1, $email, PDO::PARAM_STR);
             $query->execute();
@@ -51,7 +51,7 @@ if(!empty($_POST)) {
         
         // la suite si pas d'erreur
         if ($_SESSION["error"] === []) {
-            $sql = "INSERT INTO `member`(`lastname`, `firstname`, `age`, `email`, `pass`) VALUES (:lastname,:firstname,:age,:email,'$pass')";
+            $sql = "INSERT INTO `Member`(`lastname`, `firstname`, `age`, `email`, `pass`) VALUES (:lastname,:firstname,:age,:email,'$pass')";
             $query = $db->prepare($sql);
             // on attribue dans la bdd les données des variables obtenus par la méthode "post"
             $query->bindValue(":lastname", $lastname, PDO::PARAM_STR);
