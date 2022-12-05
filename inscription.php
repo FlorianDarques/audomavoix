@@ -1,4 +1,4 @@
-<?php 
+<?php 1
 session_start();
 // si mes input du form en method POST sont différent d'un champ vide (donc plein)
 if(!empty($_POST)) {
