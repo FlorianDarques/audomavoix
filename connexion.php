@@ -18,7 +18,7 @@ if (!empty($_POST)) {
             
             require "includes/connect.php";
 
-            $sql = "SELECT * FROM `Member` WHERE `email` = :email";
+            $sql = "SELECT * FROM `member` WHERE `email` = :email";
             $query = $db->prepare($sql);
             $query->bindValue(":email", $email, PDO::PARAM_STR);
             $query->execute();

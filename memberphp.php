@@ -22,10 +22,10 @@ session_start();
 
                 require "includes/connect.php";
 
-                $req = $db->prepare('INSERT INTO files(name, file_url) VALUES(?,?)');
+                $req = $db->prepare('INSERT INTO files(`name`, `file_url`) VALUES(?,?)');
                 $req->execute(array($file_name, $file_dest));
 
-                // $sql = "INSERT INTO `files`(`name`, `file_url`) VALUES (':name',':file_url')";
+                // $sql = "INSERT INTO `files`(`name`, `file_url`) VALUES (':name', ':file_url')";
                 // $query = $db->prepare($sql);
                 // $query->bindValue(":name", $file_name, PDO::PARAM_STR);
                 // $query->bindValue(":file_url", $file_dest, PDO::PARAM_STR);
@@ -37,11 +37,13 @@ session_start();
             } else {
 
                 echo "Une erreur est survenue lors de l'envoie du fichier";
+                
 
             }
         } else {
 
             echo "Seul les fichiers mp3 sont autorisés";
+            
 
         }
     }
