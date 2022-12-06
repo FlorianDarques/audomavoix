@@ -58,6 +58,11 @@
     border-image-slice: 1;
 }
 
+body.light .form_connexion_field:focus {
+    border-image: linear-gradient(to right, rgb(0, 0, 0), #000000);
+    border-image-slice: 1;
+}
+
 /* reset input */
 .form_connexion_field:required, .form_connexion_field:invalid {
     box-shadow: none;
@@ -107,5 +112,5 @@ body.light .connexion_btn{
 }
 
 body.light .form_connexion_field{
-    border-bottom-color: #303030;
+    border-bottom-color: #7e7e7e;
 }
