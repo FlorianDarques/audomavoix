@@ -73,9 +73,11 @@ if(!empty($_POST)) {
                 "email" => $email
             ];
             // si tout est bon, l'utilisateur est redirigé vers la page
-            $registration = 1;
-            sleep(5);
-            header("Location: index.php");
+            // création d'une session validate
+            $_SESSION["validate"] = [];
+            if($_SESSION["validate"] === []){
+                $valid = 1;
+            }
         }
       }
     }
@@ -116,21 +118,21 @@ if(!empty($_POST)) {
 
                 <div class="form_inscription_group">
 
-                    <input type="text" class="form_inscription_field" placeholder="Nom" name="lastname" require>
+                    <input type="text" class="form_inscription_field" placeholder="Nom" name="lastname" id="lastname" require>
                     <label for="lastname" class="form_inscription_label"> <i class="fa-regular fa-user"></i> Nom</label>
 
                 </div>
 
                 <div class="form_inscription_group">
 
-                    <input type="text" class="form_inscription_field" placeholder="Prénom" name="firstname" require>
+                    <input id="firstname" type="text" class="form_inscription_field" placeholder="Prénom" name="firstname" require>
                     <label for="firstname" class="form_inscription_label"> <i class="fa-regular fa-user"></i> Prénom</label>
 
                 </div>
 
                 <div class="form_inscription_group">
 
-                    <input type="number" class="form_inscription_field" placeholder="Âge" name="age" require>
+                    <input type="number" id="age" class="form_inscription_field" placeholder="Âge" name="age" require>
                     <label for="age" class="form_inscription_label"> <i class="fa-regular fa-user"></i> Âge</label>
 
                 </div>
@@ -139,7 +141,7 @@ if(!empty($_POST)) {
 
                 <div class="form_inscription_group">
 
-                    <input type="email" class="form_inscription_field" placeholder="Adresse email" name="email" require>
+                    <input type="email" id="email"class="form_inscription_field" placeholder="Adresse email" name="email" require>
                     <label for="email" class="form_inscription_label"> <i class="fa-regular fa-envelope"></i> Adresse email</label>
 
                 </div>
@@ -173,13 +175,39 @@ if(!empty($_POST)) {
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/js/bootstrap.min.js"></script>
-<script type="text/javascript">
-    if($registration === 1){
-        let anim = document.querySelector("fa-circle-check")
-        
-    }
-</script>
 <?php
     require_once "includes/footer.php"; //---Inclus le footer + ferme le body et html---//
 ?>
+<script type="text/javascript">
+   // on récupère la var "valid" qui contient 1, elle prouve que l'inscription est validée
+    var data = "<?php echo $valid; ?>";
+    if(data == 1){
+        // on insère l'animation check ainsi que l'animation qui cache l'inscription box
+        document.querySelector(".fa-circle-check").style.animation="anim-check 0.5s linear forwards"
+        document.querySelector(".inscription_box").style.animation="anim-hidden-all 2s linear forwards"
+        setInterval(exit, 2000)
+        function exit(){
+            // on redirige après 2s vers la page member
+            window.location.replace("http://5.135.101.252/audomavoix/member.php");
+        } 
+    }
+    //on appelle des variables qui ciblent les inputs du form
+    var lastName = document.getElementById("lastname")
+    var firstName = document.getElementById("firstname")
+    var age = document.getElementById("age")
+    var email = document.getElementById("email")
+    setInterval(getData, 2000)
+    function getData(){
+        // ici on stock les valeurs des inputs du form
+        sessionStorage.setItem("dataLastName", lastName.value)
+        sessionStorage.setItem("dataFirstName", firstName.value)
+        sessionStorage.setItem("dataAge", age.value)
+        sessionStorage.setItem("dataEmail", email.value)
+                        }   
+        // on attribue aux variables, donc aux inputs, les valeurs des stockages
+    lastName.value = sessionStorage.getItem("dataLastName")
+    firstName.value = sessionStorage.getItem("dataFirstName")
+    age.value = sessionStorage.getItem("dataAge")
+    email.value = sessionStorage.getItem("dataEmail")
+</script>
     </div>

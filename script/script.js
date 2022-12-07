@@ -1,6 +1,5 @@
-let wichDarkMode = localStorage.getItem("darkmode")
+let wichDarkMode = localStorage.getItem("darkmode") // création d'une var qui contient le stockage du darkmode
 const body = document.body;
-
 if(window.location.href == 'http://localhost/audomavoix/connexion.php' || window.location.href == 'http://5.135.101.252/audomavoix/connexion.php'){
 document.querySelector('.fa-user').className = 'fa-solid fa-house'
 document.querySelector('.nav-link').href = "index.php"
