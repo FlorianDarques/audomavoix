@@ -9,11 +9,14 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+
+    /* display: none; */
+
 }
 
 .fileofmp3::file-selector-button {
     display: none;
-  }
+}
 
 .fileofmp3{
     text-align-last: center;

@@ -18,21 +18,30 @@ if (!empty($_POST)) {
             
             require "includes/connect.php";
 
-            $sql = "SELECT * FROM `Member` WHERE `email` = :email";
+            $sql = "SELECT * FROM `member` WHERE `email` = :email";
             $query = $db->prepare($sql);
             $query->bindValue(":email", $email, PDO::PARAM_STR);
             $query->execute();
             $user = $query->fetch();
 
             if (!$user) {
+                
+                // header("Location: connexion.php");
                 $_SESSION["error"][] = "Utilisateur ou mot de passe incorrect";
+
             } else if (!password_verify($_POST["pass"], $user["pass"])) {
+                
+                // header("Location: connexion.php");
                 $_SESSION["error"][] = "Utilisateur ou mot de passe incorrect";
+                
             }
             if ($_SESSION["error"] === [] && $user["admin"] != NULL) {
-                $_SESSION["admin"] = true;
+                
                 header("Location: admin/index.php");
+                $_SESSION["admin"] = true;
+
             } if ($_SESSION["error"] === [] && $user["admin"] === NULL){
+
                 $_SESSION["user"] = [
                     "id" => $id,
                     "lastname" => $lastname,
@@ -40,7 +49,9 @@ if (!empty($_POST)) {
                     "age" => $age,
                     "email" => $email
                 ];
+
                 header("Location: member.php");
+
             } 
         }
     }
