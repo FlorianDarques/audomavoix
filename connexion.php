@@ -1,9 +1,9 @@
 <?php
 session_start();
-// if (!isset($_SESSION["user"])) {
-//     header("Location: connexion.php");
-//     exit;
-// }
+if (isset($_SESSION["user"])) {
+    header("Location: member.php");
+    exit;
+}
 
 $email = $_POST["email"];
 $pass = $_POST["pass"];
@@ -41,6 +41,14 @@ if (!empty($_POST)) {
                 $_SESSION["admin"] = true;
 
             } if ($_SESSION["error"] === [] && $user["admin"] === NULL){
+
+                $_SESSION["user"] = [
+                    "id" => $id,
+                    "lastname" => $lastname,
+                    "firstname" => $firstname,
+                    "age" => $age,
+                    "email" => $email
+                ];
 
                 header("Location: member.php");
 

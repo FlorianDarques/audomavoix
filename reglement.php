@@ -1,10 +1,12 @@
 <?php 
-session_start();
-if (isset($_SESSION["user"])) {
-    header("Location: member.php");
-    exit;
-}
+    session_start();
     require_once "includes/header.php"; //---Inclus le header + ouvre le body---//
+    if(isset($_SESSION["user"])){
+        $utilisateur = 1;
+     }
+    if(!isset($_SESSION["user"])){
+        $utilisateur = 0;
+    } 
 ?>
 
     <div class="background_video">
@@ -17,27 +19,44 @@ if (isset($_SESSION["user"])) {
 
         <div class="presentation_box">
 
-            <h1 class="h1_title">Title</h1>
+            <h1 class="h1_title">INFORMATIONS</h1>
 
             <p class="p1 p">
-            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Velit tenetur libero quae ab natus? Distinctio alias eveniet nulla enim quaerat natus accusamus odit, et at quod reiciendis. Impedit, inventore minima?
-            Eveniet vitae mollitia tempore, amet ratione error fuga! Ut quidem porro minus excepturi temporibus inventore quaerat odit labore, aperiam sed deleniti voluptates tempore corrupti id aut accusantium dignissimos. Ab, voluptates?
-            Repellendus dignissimos, expedita quam magnam cupiditate, quaerat consectetur ea perferendis placeat id in. Nam ipsam error sit beatae minima odio vero veritatis dolorum ratione nisi, delectus iusto voluptates iure rem!
+            Editeur: Lorem ipsum
+            <br>
+            Siège social : 160, rue de Lalorem – 62001 Loremville
+            <br>
+            Capital social: 2 euros
+            <br>
+            RCS : 012 345 678
+            <br>
+            N° TVA : FR 99 888 777 666
+            <br>
+            N°CPPAP : 9876 W 12345
+            <br>
+            Gérant et Directeur de la publication: Aliquam euismod nibh arcu, elle-même représentée par Lucas BERTAUD, Florian DARQUES et Esteban PINHEIRO
+            <br>
+            Hébergeur: AENEAN FERMENTUM, rue Ipsum 987 D – 62002 Ipsumghem
             </p>
 
             <p class="p2 p">
+                <h4>Préambule</h4>
             Lorem ipsum dolor, sit amet consectetur adipisicing elit. Magnam architecto minus cupiditate earum veritatis laudantium reiciendis nesciunt a ea. Magni esse officiis tempora nihil molestiae consectetur, eum sequi error expedita?
             Modi esse pariatur facilis inventore, est, nemo quos dolores tenetur voluptatem debitis sequi accusamus! Asperiores perspiciatis eius animi porro fuga voluptatem quis iusto error labore dignissimos, laborum impedit quam laudantium.
             Aut odio tenetur officia cum odit accusantium mollitia deleniti porro placeat fugit impedit non eligendi nisi suscipit obcaecati unde ducimus vitae, ab similique quos laborum labore pariatur saepe? Facilis, impedit?
             </p>
 
         </div>
-
-        <div class="btn_inscription">
-
-        <a href="inscription.php" class="a_inscription">S'enregistrer</a>
-
-        </div>
+        <script type="text/javascript">
+            var data = "<?php echo $utilisateur; ?>";
+            if(data == 1){
+            document.querySelector('.fa-user').className = "fa-solid fa-power-off"
+            document.querySelector('.nav-link').href = "deconnexion.php"
+    }
+            if(data == 0){
+            //rien
+    }
+        </script>
     <?php
         require_once "includes/footer.php"; //---Inclus le footer + ferme le body et html---//
     ?>
