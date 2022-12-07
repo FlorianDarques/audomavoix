@@ -31,19 +31,18 @@ session_start();
                 // $query->bindValue(":file_url", $file_dest, PDO::PARAM_STR);
                 // $query->execute();
 
-                echo "Fichier envoyé avec succès !";
+                $_SESSION["user_message"] = "Fichier envoyé avec succès !";
                 header("Location: member.php");
 
             } else {
-
-                echo "Une erreur est survenue lors de l'envoie du fichier";
-                
-
+                $_SESSION["user_message"] = "Une erreur est survenue lors de l'envoie du fichier.";
+                header("Location: member.php");
             }
         } else {
 
-            echo "Seul les fichiers mp3 sont autorisés";
-            
+            $_SESSION["user_message"] = "Seul les fichiers mp3 sont autorisés.";
+            header("Location: member.php");
+            exit;
 
         }
     }

@@ -23,6 +23,10 @@
             <form action="memberphp.php" method="post" enctype="multipart/form-data" class="form-upload">
                 <label class="labelmp3" for="fileInput"><i class="fa-solid fa-download"></i></label>
                 <input type="file" id="fileInput" class="fileofmp3" name="file_mp3"></input>
+                <?php
+                    echo $_SESSION["user_message"];
+                    $_SESSION["user_message"] = null; 
+                ?>
                 <button type="submit" class="button-upload">Valider</button>
 
             </form>

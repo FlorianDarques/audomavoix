@@ -47,17 +47,20 @@
             </p>
 
         </div>
+
+    <?php
+        require_once "includes/footer.php"; //---Inclus le footer + ferme le body et html---//
+    ?>
+
         <script type="text/javascript">
             var data = "<?php echo $utilisateur; ?>";
             if(data == 1){
             document.querySelector('.fa-user').className = "fa-solid fa-power-off"
             document.querySelector('.nav-link').href = "deconnexion.php"
+            document.querySelector('.singer').src = "../audomavoix/img/singer4.svg"
     }
             if(data == 0){
             //rien
     }
         </script>
-    <?php
-        require_once "includes/footer.php"; //---Inclus le footer + ferme le body et html---//
-    ?>
     </div>

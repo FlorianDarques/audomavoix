@@ -7,6 +7,7 @@
     flex-direction: column;
     align-items: center;
     border-radius: 25px;
+    margin-bottom: 5vh;
 }
 
 .h1_inscription {
@@ -86,4 +87,21 @@ body.light .form_inscription_label {
 
 body.light .form_inscription_field:focus {
     border-image: linear-gradient(to right, black, rgb(36, 36, 36));
+}
+.fa-circle-check{
+    color: rgb(33, 155, 49);
+    font-size: 150px;
+    z-index: 5;
+    position: fixed;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    top: 50%;
+    animation: anim-check;
+    visibility: hidden;
+}
+
+@keyframes anim-check{
+from{opacity: 0;}
+to{visibility: visible;
+    opacity: 1;}
 }
