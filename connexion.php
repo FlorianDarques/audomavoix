@@ -25,15 +25,25 @@ if (!empty($_POST)) {
             $user = $query->fetch();
 
             if (!$user) {
+                
+                // header("Location: connexion.php");
                 $_SESSION["error"][] = "Utilisateur ou mot de passe incorrect";
+
             } else if (!password_verify($_POST["pass"], $user["pass"])) {
+                
+                // header("Location: connexion.php");
                 $_SESSION["error"][] = "Utilisateur ou mot de passe incorrect";
+                
             }
             if ($_SESSION["error"] === [] && $user["admin"] != NULL) {
-                $_SESSION["admin"] = true;
+                
                 header("Location: admin/index.php");
+                $_SESSION["admin"] = true;
+
             } if ($_SESSION["error"] === [] && $user["admin"] === NULL){
+
                 header("Location: member.php");
+
             } 
         }
     }
