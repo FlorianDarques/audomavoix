@@ -59,7 +59,7 @@
 .the-form{
     margin-bottom: 5vh;
 } 
-.form_inscription_field:focus {
+body.dark .form_inscription_field:focus {
     border-image: linear-gradient(to right, white, #ffffff);
     border-image-slice: 1;
 }
