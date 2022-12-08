@@ -8,8 +8,6 @@
     align-items: center;
     border-radius: 25px;
     margin-bottom: 5vh;
-    animation: anim-check-hidden 1s;
-    visibility: visible;
 }
 
 .h1_inscription {
@@ -98,20 +96,12 @@ body.light .form_inscription_field:focus {
     left: 50%;
     transform: translate(-50%, -50%);
     top: 50%;
+    animation: anim-check;
     visibility: hidden;
-    animation: anim-check-hidden 1s;
 }
+
 @keyframes anim-check{
-from{opacity: 0;
-    visibility: visible;}
-to{opacity: 1;
-    visibility: visible;}
-}
-@keyframes anim-check-hidden{
-    from{}
-    to{}
-}
-@keyframes anim-hidden-all{
-    from{visibility: hidden;}
-    to{visibility: hidden;}
+from{opacity: 0;}
+to{visibility: visible;
+    opacity: 1;}
 }

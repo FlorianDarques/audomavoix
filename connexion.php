@@ -1,9 +1,7 @@
 <?php
 session_start();
-if (isset($_SESSION["user"])) {
-    header("Location: member.php");
-    exit;
-}
+// error_reporting(E-ALL);
+// ini_set("display_errors",1);
 
 $email = $_POST["email"];
 $pass = $_POST["pass"];
@@ -39,23 +37,27 @@ if (!empty($_POST)) {
                 
                 header("Location: admin/index.php");
                 $_SESSION["admin"] = true;
-
-            } if ($_SESSION["error"] === [] && $user["admin"] === NULL){
-
+            
+            } else if ($_SESSION["error"] === [] && $user["admin"] === NULL){
+                
                 $_SESSION["user"] = [
-                    "id" => $id,
-                    "lastname" => $lastname,
-                    "firstname" => $firstname,
-                    "age" => $age,
-                    "email" => $email
+                    "id" => $user['ID'],
+                    "lastname" => $user['lastname'],
+                    "firstname" => $user['firstname'],
+                    "age" => $user['age'],
+                    "email" => $user['email']
                 ];
 
-                header("Location: member.php");
 
+
+                header('Location: member.php');
+                
+                    
             } 
         }
     }
 }
+
 ?>
 
 <?php 
