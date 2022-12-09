@@ -67,6 +67,9 @@ $query->execute();
                         if($stage !== 2){
                             echo "disabled";
                         }
+                        if($stage == 2){
+                            echo "checked";
+                        }
                         ?>>Refuser
                         <input type="radio" class="form-check-input" id="radio2" name="optradiostage" value="3" 
                         <?php 
@@ -81,6 +84,9 @@ $query->execute();
                     <?php 
                         if($stage !== 4){
                             echo "disabled";
+                        }
+                        if($stage == 4){
+                            echo "checked";
                         }
                     ?>>Refuser
                     <input type="radio" class="form-check-input" id="radio2" name="optradiostage" value="5"
@@ -97,6 +103,9 @@ $query->execute();
                         if($stage !== 6){
                             echo "disabled";
                         }
+                        if($stage == 6){
+                            echo "checked";
+                        }
                     ?>>Refuser
                     <input type="radio" class="form-check-input" id="radio2" name="optradiostage" value="7"
                     <?php 
@@ -106,6 +115,26 @@ $query->execute();
                     ?>>Accepter
                     </div>
                 </div>
+                <?php 
+                if($stage == 1 || $stage == 3 || $stage == 5 || $stage == 7){
+                echo'<div class="row mt-3">
+                    <div class="col-md-6"><label class="labels">Étape actuelle</label><input type="text" class="form-control"';
+                    if($stage == 1){
+                        $stage = "Choisir sa chanson";
+                    }
+                    if($stage == 3){
+                        $stage = "Envoyer sa chanson";
+                    }
+                    if($stage == 5){
+                        $stage = "Procéder au paiement";
+                    }
+                    if($stage == 7){
+                        $stage = "Terminer";
+                    }
+                    echo "placeholder=' $stage ' value='' disabled></div>
+                </div>";
+            }
+                ?>
                 <div class="mt-5 text-center"><button class="btn btn-primary profile-button" type="submit">Valider</button></div>
                 </form>
             </div>
