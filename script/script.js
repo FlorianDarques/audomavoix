@@ -1,19 +1,24 @@
-let wichDarkMode = localStorage.getItem("darkmode") // création d'une var qui contient le stockage du darkmode
+let wichDarkMode = localStorage.getItem("darkmode")
 const body = document.body;
-if(window.location.href == 'http://localhost/audomavoix/connexion.php' || window.location.href == 'http://5.135.101.252/audomavoix/connexion.php'){
+
+if(window.location.href == 'http://localhost/audomavoix/connexion.php' || window.location.href == 'http://5.135.101.252/audomavoix/connexion.php' || window.location.href == 'http://5.196.139.186/audomavoix/connexion.php'){
 document.querySelector('.fa-user').className = 'fa-solid fa-house'
 document.querySelector('.nav-link').href = "index.php"
 document.querySelector('.singer').src = "../../audomavoix/img/singer3.svg"
 }
-if(window.location.href == 'http://localhost/audomavoix/member.php' || window.location.href == "http://5.135.101.252/audomavoix/member.php") {
+if(window.location.href == 'http://localhost/audomavoix/member.php' || window.location.href == "http://5.135.101.252/audomavoix/member.php" || window.location.href == 'http://5.196.139.186/audomavoix/member.php') {
     document.querySelector('.fa-user').className = "fa-solid fa-power-off"
     document.querySelector('.nav-link').href = "deconnexion.php"
 }
-if(window.location.href == 'http://localhost/audomavoix/inscription.php' || window.location.href == 'http://5.135.101.252/audomavoix/inscription.php'){
+if(window.location.href == 'http://localhost/audomavoix/memberphp.php' || window.location.href == "http://5.135.101.252/audomavoix/memberphp.php" || window.location.href == 'http://5.196.139.186/audomavoix/memberphp.php') {
+    document.querySelector('.fa-user').className = "fa-solid fa-power-off"
+    document.querySelector('.nav-link').href = "deconnexion.php"
+}
+if(window.location.href == 'http://localhost/audomavoix/inscription.php' || window.location.href == 'http://5.135.101.252/audomavoix/inscription.php' || window.location.href == 'http://5.196.139.186/audomavoix/inscription.php'){
     document.querySelector('.singer').src = "../../audomavoix/img/singer2.svg"
 }
 
-if(window.location.href == 'http://localhost/audomavoix/member.php' || window.location.href == 'http://5.135.101.252/audomavoix/member.php'){
+if(window.location.href == 'http://localhost/audomavoix/member.php' || window.location.href == 'http://5.135.101.252/audomavoix/member.php' || window.location.href == 'http://5.196.139.186/audomavoix/member.php'){
     document.querySelector('.singer').src = "../../audomavoix/img/singer4.svg"
 }
 

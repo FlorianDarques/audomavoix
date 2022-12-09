@@ -4,6 +4,7 @@ session_start();
 if (!$_SESSION["admin"]) {
     header("Location: ../index.php");
 }
+
 ?>
 
 <!DOCTYPE html>
@@ -14,8 +15,6 @@ if (!$_SESSION["admin"]) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.2.0/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdn.datatables.net/1.13.1/css/dataTables.bootstrap5.min.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <link rel="stylesheet" href="index.css">
     <title>Document</title>
 </head>
 <body>
@@ -26,53 +25,37 @@ if (!$_SESSION["admin"]) {
 
     <table id="example" class="table table-striped" style="width:100%">
         <thead>
-            <tr class="table-dark">
-                <th>Profil</th>
+            <tr>
+                <th>ID</th>
                 <th>Nom</th>
                 <th>Prénom</th>
                 <th>Age</th>
                 <th>Email</th>
-                <th>Auteur</th>
-                <th>Chanson</th>
             </tr>
         </thead>
-        <tbody>
-        <?php     
-        require "../includes/connect.php";
-        // on récupère les données membres dans SQL 
-        $sql = "SELECT * FROM `Member`, `Inscription` WHERE Member.id = Inscription.IDuser AND Member.admin IS NULL";
-        $query = $db->prepare($sql);
-        $query->execute();
-        // on récupère toutes les lignes de chaque membres
-        $donnees = $query->fetchAll();
-        // on transforme toutes ces données pour devenir une donnée individuelle pour chaque membres
-        foreach($donnees as $donnee => $valueuser): // on termine la boucle plus tard quand on aura distribué à chaque tables ses données utilisateurs 
-        
-        ?>
+        <tbody>                
             <tr>
-                    <th><a href="user.php?Id=<?php echo $valueuser["id"];
-                    $_SESSION["pageuser"]=[$valueuser["id"], $valueuser["lastname"], $valueuser["firstname"],$valueuser["age"],$valueuser["email"],$valueuser["author"],$valueuser["song"]]
-                    ?>"><i class="fa-solid fa-id-card-clip"></i></a></th>
-                    <th><?php echo $valueuser["lastname"]?></th>
-                    <th><?php echo $valueuser["firstname"]?></th>
-                    <th><?php echo $valueuser["age"]?></th>
-                    <th><?php echo $valueuser["email"]?></th>
-                    <th><?php echo $valueuser["author"]?></th>
-                    <th><?php echo $valueuser["song"]?></th>
+                <td>1</td>
+                <td>Bertaud</td>
+                <td>Lucas</td>
+                <td>23</td>
+                <td>l.bertaud@hotmail.com</td>
             </tr>
-            <?php
-        endforeach; // ici on termine la boucle
-            ?>
+            <tr>
+                <td>2</td>
+                <td>Pelle</td>
+                <td>Jérome</td>
+                <td>35</td>
+                <td>Jérome@gmail.com</td>
+            </tr>
         </tbody>
         <tfoot>
-            <tr class="table-dark">
-                <th>Profil</th>
+            <tr>
+                <th>ID</th>
                 <th>Nom</th>
                 <th>Prénom</th>
                 <th>Age</th>
                 <th>Email</th>
-                <th>Auteur</th>
-                <th>Chanson</th>
             </tr>
         </tfoot>
     </table>

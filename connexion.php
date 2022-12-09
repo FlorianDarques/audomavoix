@@ -1,9 +1,7 @@
 <?php
 session_start();
-if (isset($_SESSION["user"])) {
-    header("Location: member.php");
-    exit;
-}
+// error_reporting(E-ALL);
+// ini_set("display_errors",1);
 
 $email = $_POST["email"];
 $pass = $_POST["pass"];
@@ -18,33 +16,48 @@ if (!empty($_POST)) {
             
             require "includes/connect.php";
 
-            $sql = "SELECT * FROM `Member` WHERE `email` = :email";
+            $sql = "SELECT * FROM `member` WHERE `email` = :email";
             $query = $db->prepare($sql);
             $query->bindValue(":email", $email, PDO::PARAM_STR);
             $query->execute();
             $user = $query->fetch();
 
             if (!$user) {
+                
+                // header("Location: connexion.php");
                 $_SESSION["error"][] = "Utilisateur ou mot de passe incorrect";
+
             } else if (!password_verify($_POST["pass"], $user["pass"])) {
+                
+                // header("Location: connexion.php");
                 $_SESSION["error"][] = "Utilisateur ou mot de passe incorrect";
+                
             }
             if ($_SESSION["error"] === [] && $user["admin"] != NULL) {
-                $_SESSION["admin"] = true;
+                
                 header("Location: admin/index.php");
-            } if ($_SESSION["error"] === [] && $user["admin"] === NULL){
+                $_SESSION["admin"] = true;
+            
+            } else if ($_SESSION["error"] === [] && $user["admin"] === NULL){
+                
                 $_SESSION["user"] = [
-                    "id" => $id,
-                    "lastname" => $lastname,
-                    "firstname" => $firstname,
-                    "age" => $age,
-                    "email" => $email
+                    "id" => $user['ID'],
+                    "lastname" => $user['lastname'],
+                    "firstname" => $user['firstname'],
+                    "age" => $user['age'],
+                    "email" => $user['email']
                 ];
-                header("Location: member.php");
+
+
+
+                header('Location: member.php');
+                
+                    
             } 
         }
     }
 }
+
 ?>
 
 <?php 
