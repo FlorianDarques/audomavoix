@@ -51,7 +51,7 @@ if (!$_SESSION["admin"]) {
         ?>
             <tr>
                     <th><a href="user.php?Id=<?php echo $valueuser["id"];
-                    $_SESSION["pageuser"]=[$valueuser["id"], $valueuser["lastname"], $valueuser["firstname"],$valueuser["age"],$valueuser["email"],$valueuser["author"],$valueuser["song"]]
+                    $_SESSION["pageuser"]=[$valueuser["id"], $valueuser["lastname"], $valueuser["firstname"],$valueuser["age"],$valueuser["email"],$valueuser["author"],$valueuser["song"],$valueuser["stage"]]
                     ?>"><i class="fa-solid fa-id-card-clip"></i></a></th>
                     <th><?php echo $valueuser["lastname"]?></th>
                     <th><?php echo $valueuser["firstname"]?></th>
