@@ -33,8 +33,14 @@ $data_music = $query->fetchAll();
 
                 
 
-                $req = $db->prepare('INSERT INTO files(`name`, `file_url`, `ID_member`) VALUES(?,?,?)');
-                $req->execute(array($file_name, $file_dest, $_SESSION["user"]["id"]));
+                // $req = $db->prepare('INSERT INTO files(`name`, `file_url`, `ID_member`) VALUES(?,?,?)');
+                // $req->execute(array($file_name, $file_dest, $_SESSION["user"]["id"]));
+
+                $sql = $db->prepare("UPDATE `files` SET `name`=':namee',`file_url`=':file_url' WHERE `ID_member` = :id");
+                $query->bindValue(":namee", $file_name, PDO::PARAM_STR);
+                $query->bindValue(":file_url", $file_dest, PDO::PARAM_STR);
+                $query->bindValue(":id", $_SESSION["user"]["id"], PDO::PARAM_STR);
+                $query->execute();
 
                 // $sql = "INSERT INTO `files`(`name`, `file_url`) VALUES (':name', ':file_url')";
                 // $query = $db->prepare($sql);

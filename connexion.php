@@ -50,7 +50,7 @@ if (!empty($_POST)) {
 
 
 
-                header('Location: member.php');
+                header('Location: memberapi.php');
                 
                     
             } 
