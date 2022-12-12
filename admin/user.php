@@ -5,7 +5,13 @@ if (!$_SESSION["admin"]) {
 }
 // l'echo permet de voir les $_SESSION
 // echo '<pre>' . print_r($_SESSION, TRUE) . '</pre>'; 
-echo $_SESSION['userid'];
+$IDpage = $_GET['Id']; // On récupère l'ID sur la barre HTML
+require "../includes/connect.php";
+$sql = "SELECT * FROM `Member`, `Inscription` WHERE Member.id = Inscription.IDuser AND Inscription.IDuser = '$IDpage'";
+$query = $db->prepare($sql);
+$query->execute();
+$valueuser = $query->fetch();
+$_SESSION["pageuser"]=[$valueuser["id"], $valueuser["lastname"], $valueuser["firstname"],$valueuser["age"],$valueuser["email"],$valueuser["author"],$valueuser["song"],$valueuser["stage"]];
 $id = $_SESSION['pageuser']['0'];
 $lastname = $_SESSION['pageuser']['1'];
 $firstname = $_SESSION['pageuser']['2'];
@@ -13,6 +19,16 @@ $age = $_SESSION['pageuser']['3'];
 $email = $_SESSION['pageuser']['4'];
 $author = $_SESSION['pageuser']['5'];
 $song = $_SESSION['pageuser']['6'];
+$stage = $_SESSION['pageuser']['7'];
+
+
+if(isset($_POST["optradiostage"]) && !empty($_POST["optradiostage"])){
+$optionstage = $_POST["optradiostage"];
+$sql = "UPDATE `Inscription` SET `stage`='$optionstage' WHERE `IDuser` = '$id'";
+$query = $db->prepare($sql);
+$query->execute();
+    header("Location: index.php");
+}
 ?>
 
 
@@ -50,11 +66,84 @@ $song = $_SESSION['pageuser']['6'];
                 </div>
                 <div class="row mt-3">
                     <div class="col-md-12"><label class="labels">Âge</label><input type="text" class="form-control" placeholder="<?= "$age" ?>" disabled value=""></div>
-                    <div class="col-md-12"><label class="labels">Étape 1</label><input type="text" class="form-control" placeholder="enter address line 1" value=""></div>
-                    <div class="col-md-12"><label class="labels">Étape 2</label><input type="text" class="form-control" placeholder="enter address line 2" value=""></div>
-                    <div class="col-md-12"><label class="labels">Étape 3</label><input type="text" class="form-control" placeholder="enter address line 2" value=""></div>
+                    <form action="" method="post">
+                    <div class="col-md-12">
+                        <label class="form-check-label" for="radio1">Étape 1</label><br>
+                        <input type="radio" class="form-check-input" id="radio1" name="optradiostage" value="1" 
+                        <?php 
+                        if($stage !== 2){
+                            echo "disabled";
+                        }
+                        if($stage == 2){
+                            echo "checked";
+                        }
+                        ?>>Refuser
+                        <input type="radio" class="form-check-input" id="radio2" name="optradiostage" value="3" 
+                        <?php 
+                        if($stage !== 2){
+                            echo "disabled";
+                        }
+                        ?>>Accepter
+                    </div>
+                    <div class="col-md-12">
+                    <label class="form-check-label" for="radio2">Étape 2</label><br>    
+                    <input type="radio" class="form-check-input" id="radio1" name="optradiostage" value="3"
+                    <?php 
+                        if($stage !== 4){
+                            echo "disabled";
+                        }
+                        if($stage == 4){
+                            echo "checked";
+                        }
+                    ?>>Refuser
+                    <input type="radio" class="form-check-input" id="radio2" name="optradiostage" value="5"
+                    <?php 
+                        if($stage !== 4){
+                            echo "disabled";
+                        }
+                    ?>>Accepter
+                    </div>
+                    <div class="col-md-12">
+                    <label class="form-check-label" for="radio3">Étape 3</label><br>    
+                    <input type="radio" class="form-check-input" id="radio1" name="optradiostage" value="5"
+                    <?php 
+                        if($stage !== 6){
+                            echo "disabled";
+                        }
+                        if($stage == 6){
+                            echo "checked";
+                        }
+                    ?>>Refuser
+                    <input type="radio" class="form-check-input" id="radio2" name="optradiostage" value="7"
+                    <?php 
+                        if($stage !== 6){
+                            echo "disabled";
+                        }
+                    ?>>Accepter
+                    </div>
                 </div>
-                <div class="mt-5 text-center"><button class="btn btn-primary profile-button" type="button">Save Profile</button></div>
+                <?php 
+                if($stage == 1 || $stage == 3 || $stage == 5 || $stage == 7){
+                echo'<div class="row mt-3">
+                    <div class="col-md-6"><label class="labels">Étape actuelle</label><input type="text" class="form-control"';
+                    if($stage == 1){
+                        $stage = "Choisir sa chanson";
+                    }
+                    if($stage == 3){
+                        $stage = "Envoyer sa chanson";
+                    }
+                    if($stage == 5){
+                        $stage = "Procéder au paiement";
+                    }
+                    if($stage == 7){
+                        $stage = "Terminer";
+                    }
+                    echo "placeholder=' $stage ' value='' disabled></div>
+                </div>";
+            }
+                ?>
+                <div class="mt-5 text-center"><button class="btn btn-primary profile-button" type="submit">Valider</button></div>
+                </form>
             </div>
         </div>
         <div class="col-md-4">

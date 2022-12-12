@@ -18,33 +18,44 @@ if (!empty($_POST)) {
             
             require "includes/connect.php";
 
-            $sql = "SELECT * FROM `Member` WHERE `email` = :email";
+            $sql = "SELECT * FROM `Member` , `Inscription` WHERE `email` = :email AND Member.id = Inscription.IDuser";
             $query = $db->prepare($sql);
             $query->bindValue(":email", $email, PDO::PARAM_STR);
             $query->execute();
             $user = $query->fetch();
-
             if (!$user) {
-                $_SESSION["error"][] = "Utilisateur ou mot de passe incorrect";
-            } else if (!password_verify($_POST["pass"], $user["pass"])) {
+                $sql = "SELECT * FROM `Member` WHERE `email` = :email";
+                $query = $db->prepare($sql);
+                $query->bindValue(":email", $email, PDO::PARAM_STR);
+                $query->execute();
+                $useradmin = $query->fetch();
+                if ($_SESSION["error"] === [] && $useradmin["admin"] != NULL) {
+                $_SESSION["admin"] = true;
+                header("Location: admin/index.php"); }
+                else {
+                $_SESSION["error"][] = "Utilisateur ou mot de passe incorrect";}
+                } 
+            else if (!password_verify($_POST["pass"], $user["pass"])) {
                 $_SESSION["error"][] = "Utilisateur ou mot de passe incorrect";
             }
-            if ($_SESSION["error"] === [] && $user["admin"] != NULL) {
-                $_SESSION["admin"] = true;
-                header("Location: admin/index.php");
-            } if ($_SESSION["error"] === [] && $user["admin"] === NULL){
+            
+            } if ($_SESSION["error"] === [] && $useradmin["admin"] === NULL){
                 $_SESSION["user"] = [
-                    "id" => $id,
-                    "lastname" => $lastname,
-                    "firstname" => $firstname,
-                    "age" => $age,
+                    "id" => $user["id"],
+                    "lastname" => $user["lastname"],
+                    "firstname" => $user["firstname"],
+                    "age" => $user["age"],
                     "email" => $email
                 ];
+                $_SESSION["stage"] = [
+                "stage" => $user["stage"]
+                ];
                 header("Location: member.php");
+                
             } 
         }
     }
-}
+
 ?>
 
 <?php 

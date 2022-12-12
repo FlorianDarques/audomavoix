@@ -72,6 +72,10 @@ if(!empty($_POST)) {
                 "age" => $age,
                 "email" => $email
             ];
+            $sql2 = "INSERT INTO `Inscription`(`song`, `author`, `IDuser`, `stage`) VALUES ('none','none','$id','1')";
+            $query2 = $db->prepare($sql2);
+            $query2->execute();
+
             // si tout est bon, l'utilisateur est redirigé vers la page
             // création d'une session validate
             $_SESSION["validate"] = [];
