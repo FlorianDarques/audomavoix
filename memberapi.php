@@ -4,7 +4,7 @@ session_start();
 
 $curl = curl_init();
 $name_music = str_replace(" ", "%20", $_GET["music"]);
-$url = `https://shazam.p.rapidapi.com/search?term="${name_music}"&locale=en-US&offset=0&limit=5`;
+$url = "https://shazam.p.rapidapi.com/search?term=".$name_music."&locale=en-US&offset=0&limit=5";
 
 curl_setopt_array($curl, [
 	CURLOPT_URL => $url,
@@ -44,7 +44,7 @@ if ($err) {
         $query->execute();
 
         
-        header("Location: member.php");
+        header("Location: wait.php");
 
     } else {
 
