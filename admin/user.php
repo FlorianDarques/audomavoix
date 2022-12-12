@@ -5,6 +5,13 @@ if (!$_SESSION["admin"]) {
 }
 // l'echo permet de voir les $_SESSION
 // echo '<pre>' . print_r($_SESSION, TRUE) . '</pre>'; 
+$IDpage = $_GET['Id']; // On récupère l'ID sur la barre HTML
+require "../includes/connect.php";
+$sql = "SELECT * FROM `Member`, `Inscription` WHERE Member.id = Inscription.IDuser AND Inscription.IDuser = '$IDpage'";
+$query = $db->prepare($sql);
+$query->execute();
+$valueuser = $query->fetch();
+$_SESSION["pageuser"]=[$valueuser["id"], $valueuser["lastname"], $valueuser["firstname"],$valueuser["age"],$valueuser["email"],$valueuser["author"],$valueuser["song"],$valueuser["stage"]];
 $id = $_SESSION['pageuser']['0'];
 $lastname = $_SESSION['pageuser']['1'];
 $firstname = $_SESSION['pageuser']['2'];
@@ -13,7 +20,7 @@ $email = $_SESSION['pageuser']['4'];
 $author = $_SESSION['pageuser']['5'];
 $song = $_SESSION['pageuser']['6'];
 $stage = $_SESSION['pageuser']['7'];
-require "../includes/connect.php";
+
 
 if(isset($_POST["optradiostage"]) && !empty($_POST["optradiostage"])){
 $optionstage = $_POST["optradiostage"];

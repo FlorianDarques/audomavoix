@@ -4,6 +4,9 @@ session_start();
 if (!$_SESSION["admin"]) {
     header("Location: ../index.php");
 }
+// Enlever la session pageuser
+unset($_SESSION["pageuser"]);
+// echo '<pre>' . print_r($_SESSION, TRUE) . '</pre>'; 
 ?>
 
 <!DOCTYPE html>
@@ -51,7 +54,6 @@ if (!$_SESSION["admin"]) {
         ?>
             <tr>
                     <th><a href="user.php?Id=<?php echo $valueuser["id"];
-                    $_SESSION["pageuser"]=[$valueuser["id"], $valueuser["lastname"], $valueuser["firstname"],$valueuser["age"],$valueuser["email"],$valueuser["author"],$valueuser["song"],$valueuser["stage"]]
                     ?>"><i class="fa-solid fa-id-card-clip"></i></a></th>
                     <th><?php echo $valueuser["lastname"]?></th>
                     <th><?php echo $valueuser["firstname"]?></th>
@@ -59,6 +61,7 @@ if (!$_SESSION["admin"]) {
                     <th><?php echo $valueuser["email"]?></th>
                     <th><?php echo $valueuser["author"]?></th>
                     <th><?php echo $valueuser["song"]?></th>
+                    
             </tr>
             <?php
         endforeach; // ici on termine la boucle
