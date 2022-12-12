@@ -1,77 +1,29 @@
-<?php
-session_start();
-require "includes/connect.php";
-
-// si la session user n'est pas active , redirection page connexion
-if (!isset($_SESSION["user"])) {
-    header("Location: connexion.php");
-    exit;
-}
-// req pour afficher toute les infos contenu dans la table "files" basé sur l'id de la session user
-$req = "SELECT * FROM `files` WHERE `ID_member` = :id";
-$query = $db->prepare($req);
-$query->bindValue(":id", $_SESSION["user"]["id"], PDO::PARAM_STR);
-$query->execute();
-$data_music = $query->fetchAll();
-
-// si la table files et la colonne session du user est vide 
-// if (!empty($data_music)) {
-//     header("Location: memberphp.php");
-// } 
-
-
-if (!empty($_FILES)) {
-    $file_name = $_FILES["file_mp3"]["name"];
-    $file_extension = strrchr($file_name, ".");
-    $file_tmp_name = $_FILES["file_mp3"]["tmp_name"];
-    $file_dest = __DIR__ . '/files/' . $file_name;
-    $file_error = $_FILES["file_mp3"]["error"];
-
-    echo "Nom: " . $file_name . "</br>";
-    echo "Extension: " . $file_extension . "</br>";
-    echo "Erreur: " . $file_error . "</br>";
-    echo "Destination: " . $file_dest . "</br>";
-
-    $extention_accept = array(".mp3", ".MP3");
-
-    if (in_array($file_extension, $extention_accept) && $file_error === 0) {
-
-        if (move_uploaded_file($file_tmp_name, $file_dest)) {
-
-
-
-            // $req = $db->prepare('INSERT INTO files(`name`, `file_url`, `ID_member`) VALUES(?,?,?)');
-            // $req->execute(array($file_name, $file_dest, $_SESSION["user"]["id"]));
-
-            $sql = $db->prepare("UPDATE `files` SET `name`=':namee',`file_url`=':file_url' WHERE `ID_member` = :id");
-            $query->bindValue(":namee", $file_name, PDO::PARAM_STR);
-            $query->bindValue(":file_url", $file_dest, PDO::PARAM_STR);
-            $query->bindValue(":id", $_SESSION["user"]["id"], PDO::PARAM_STR);
-            $query->execute();
-
-            // $sql = "INSERT INTO `files`(`name`, `file_url`) VALUES (':name', ':file_url')";
-            // $query = $db->prepare($sql);
-            // $query->bindValue(":name", $file_name, PDO::PARAM_STR);
-            // $query->bindValue(":file_url", $file_dest, PDO::PARAM_STR);
-            // $query->execute();
-
-            $_SESSION["user_message"] = "Fichier envoyé avec succès !";
-            header("Location: memberphp.php");
-        } else {
-
-            $_SESSION["user_message"] = "Une erreur est survenue lors de l'envoie du fichier.";
-        }
-    } else {
-
-        $_SESSION["user_message"] = "Seul les fichiers mp3 sont autorisés.";
+<?php 
+    session_start();
+    if (!isset($_SESSION["user"])) {
+        header("Location: connexion.php");
+        exit;
     }
-}
-var_dump($_SESSION["user"]["id"]);
-?>
-
-
-<?php
-require_once "includes/header.php"; //---Inclus le header + ouvre le body---//
+    if(isset($_SESSION["stage"])){
+        if($_SESSION["stage"] != ["stage" => "3"]){
+        header("Location: wait.php");
+        }
+    }  
+    if(isset($_SESSION["user"])){
+      //  echo '<pre>' . print_r($_SESSION, TRUE) . '</pre>'; 
+        $id = $_SESSION["user"]["id"];
+    if(isset($_POST['button'])){
+        require "includes/connect.php";
+        $sql = "UPDATE `Inscription` SET `stage`='4' WHERE IDuser = '$id'";
+        $query = $db->prepare($sql);
+        $query->execute();
+        $_SESSION["stage"] = [
+            "stage" => $donnees["stage"]
+        ];
+        header("Location: wait.php");
+    }
+    }
+    require_once "includes/header.php"; //---Inclus le header + ouvre le body---//
 ?>
 
 <div class="background_video">

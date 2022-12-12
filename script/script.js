@@ -10,7 +10,7 @@ if(window.location.href == 'http://localhost/audomavoix/member.php' || window.lo
     document.querySelector('.fa-user').className = "fa-solid fa-power-off"
     document.querySelector('.nav-link').href = "deconnexion.php"
 }
-if(window.location.href == 'http://localhost/audomavoix/memberphp.php' || window.location.href == "http://5.135.101.252/audomavoix/memberphp.php" || window.location.href == 'http://5.196.139.186/audomavoix/memberphp.php') {
+if(window.location.href == 'http://localhost/audomavoix/memberphp.php' || window.location.href == "http://5.135.101.252/audomavoix/memberphp.php" || window.location.href == 'http://5.196.139.186/audomavoix/memberphp.php' || window.location.href == 'http://5.135.101.252/audomavoix/memberapi.php') {
     document.querySelector('.fa-user').className = "fa-solid fa-power-off"
     document.querySelector('.nav-link').href = "deconnexion.php"
 }
