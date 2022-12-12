@@ -17,6 +17,7 @@ if(isset($_SESSION["user"])){
 $curl = curl_init();
 $name_music = str_replace(" ", "%20", $_GET["music"]);
 $url = "https://shazam.p.rapidapi.com/search?term=".$name_music."&locale=en-US&offset=0&limit=5";
+$url = "https://shazam.p.rapidapi.com/search?term=".$name_music."&locale=en-US&offset=0&limit=5";
 
 curl_setopt_array($curl, [
 	CURLOPT_URL => $url,
