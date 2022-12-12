@@ -4,6 +4,25 @@
         header("Location: connexion.php");
         exit;
     }
+    if(isset($_SESSION["stage"])){
+        if($_SESSION["stage"] != ["stage" => "3"]){
+        header("Location: wait.php");
+        }
+    }  
+    if(isset($_SESSION["user"])){
+      //  echo '<pre>' . print_r($_SESSION, TRUE) . '</pre>'; 
+        $id = $_SESSION["user"]["id"];
+    if(isset($_POST['button'])){
+        require "includes/connect.php";
+        $sql = "UPDATE `Inscription` SET `stage`='4' WHERE IDuser = '$id'";
+        $query = $db->prepare($sql);
+        $query->execute();
+        $_SESSION["stage"] = [
+            "stage" => $donnees["stage"]
+        ];
+        header("Location: wait.php");
+    }
+    }
     require_once "includes/header.php"; //---Inclus le header + ouvre le body---//
 ?>
 

@@ -3,10 +3,10 @@ session_start();
 if(isset($_SESSION["stage"])){
     if($_SESSION["stage"] != ["stage" => "2"] || $_SESSION["stage"] != ["stage" => "4"] || $_SESSION["stage"] != ["stage" => "6"]){
         if($_SESSION["stage"] == ["stage" => "1"]){
-            header("Location: etape1.php");
+            header("Location: memberapi.php");
         }
         else if($_SESSION["stage"] == ["stage" => "3"]){
-            header("Location: etape2.php");
+            header("Location: member.php");
         }
         else if($_SESSION["stage"] == ["stage" => "5"]){
             header("Location: etape3.php");

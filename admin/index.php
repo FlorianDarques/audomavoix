@@ -6,7 +6,8 @@ if (!$_SESSION["admin"]) {
 }
 // Enlever la session pageuser
 unset($_SESSION["pageuser"]);
-// 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echo '<pre>' . print_r($_SESSION, TRUE) . '</pre>'; 
+
+// '<pre>' . print_r($_SESSION, TRUE) . '</pre>'; 
 ?>
 
 <!DOCTYPE html>

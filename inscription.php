@@ -75,6 +75,14 @@ if(!empty($_POST)) {
             $sql2 = "INSERT INTO `Inscription`(`song`, `author`, `IDuser`, `stage`) VALUES ('none','none','$id','1')";
             $query2 = $db->prepare($sql2);
             $query2->execute();
+            $sql = "SELECT * FROM `Member` , `Inscription` WHERE `email` = :email AND Member.id = Inscription.IDuser";
+            $query = $db->prepare($sql);
+            $query->bindValue(":email", $email, PDO::PARAM_STR);
+            $query->execute();
+            $user = $query->fetch();
+            $_SESSION["stage"] = [
+                "stage" => $user["stage"]
+                ];
 
             // si tout est bon, l'utilisateur est redirigé vers la page
             // création d'une session validate
@@ -192,7 +200,8 @@ if(!empty($_POST)) {
         setInterval(exit, 2000)
         function exit(){
             // on redirige après 2s vers la page member
-            window.location.replace("http://5.135.101.252/audomavoix/member.php");
+            window.location.replace("http://5.135.101.252/audomavoix/memberapi.php")
+           // window.location.replace("http://localhost/audomavoix/memberapi.php");
         } 
     }
     //on appelle des variables qui ciblent les inputs du form
