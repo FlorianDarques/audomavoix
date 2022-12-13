@@ -30,7 +30,8 @@ curl_setopt_array($curl, [
 	CURLOPT_CUSTOMREQUEST => "GET",
 	CURLOPT_HTTPHEADER => [
 		"X-RapidAPI-Host: shazam.p.rapidapi.com",
-		"X-RapidAPI-Key: a686ab8425msh2443fc485de7c08p17cbe9jsnd64a4599be94"
+		"X-RapidAPI-Key: 6a61b4f15dmsh9931e1a7a9d14eap1e658djsnc8ab3f62286b"
+
 	],
 ]);
 
@@ -52,20 +53,28 @@ if ($err) {
 
 <?php 
     require_once "includes/header.php";
-    require_once "includes/nav.php"; //---Inclus la navbar---//
 ?>
 
-    <form action="" method="get">
+    <div class="background_video">
+    <video autoplay muted loop src="video/bg.mp4"></video>
 
-        <input type="text" name="music" id="">
+<?php
+    require_once "includes/nav2.php"; //---Inclus la navbar---//
+?>
 
-        <button type="submit">Rechercher</button>
 
+<div class="inscription_box">
+    <form action="" method="get" class="the-form">
+        <div class="form-div-memberapi form_inscription_group">
+        <input type="text" class="form-memberapi" name="music" id="">
+
+        <button type="submit" class="button-memberapi"><i class="fa-solid fa-magnifying-glass"></i></button>
+        </div>
     </form>
 
-<form action="" method="post">
-
-        <select name="choise_music" id="">
+<form action="" method="post" class="the-form">
+    <div class="form-div-memberapi2">
+        <select name="choise_music" class="form_memberapi_field" id="">
 
     <?php 
     
@@ -78,13 +87,13 @@ if ($err) {
         if (!empty($title)) {
     ?>
 
-            <option value="<?php echo $key . "-" . $title . "-" . $artist; ?>"><?php echo $title." par ".$artist; ?></option>
+            <option value="<?php echo $key . "»" . $title . "»" . $artist; ?>"><?php echo $title." par ".$artist; ?></option>
         
     <?php
     }
     }
     if (!empty($_POST)) {
-        $list = explode('-', $_POST["choise_music"]);
+        $list = explode('»', $_POST["choise_music"]);
         require "includes/connect.php";
             
             $query = $db->prepare("INSERT INTO `files`(`key_music`, `ID_member`) VALUES(:key_music, :id)");
@@ -122,9 +131,13 @@ if ($err) {
     ?>
 
         </select>
-
-        <button type="submit">Valider</button>
-
+        <div class="container-button-memberapi">
+        <button type="submit" class="button-memberapi-validate" >Valider</button>
+        </div>
+    </div>
+        
 </form>
-</body>
-</html>
+    </div>
+    <?php
+    require_once "includes/footer.php"; //---Inclus le footer + ferme le body et html---//
+    ?>
