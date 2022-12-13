@@ -1,0 +1,95 @@
+.form-memberapi {
+    width: none;
+    border: 0;
+    border-bottom: 2px solid #B8B8B8;
+    outline: 0;
+    font-size: 1.5rem;
+    color: white;
+    padding: 7px 0;
+    background: transparent;
+    transition: border-color 0.2s;
+}
+
+.form-div-memberapi{
+    display: flex;
+    flex-direction: row;
+}
+
+.button-memberapi{
+    border: none;
+    background: none;
+    color: white;
+    border-bottom: #B8B8B8 2px solid;
+}
+
+.container-button-memberapi{
+    background: #D9D9D9;
+    border-radius: 50px;
+    width: 250px;
+    height: 53.65px;
+    display: flex;
+    justify-content: center;
+    margin-top: 30px;
+}
+
+.button-memberapi-validate{
+    text-decoration: none;
+    border: none;
+    background: none;
+    font-family: 'Roboto Flex';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 32px;
+    line-height: 38px;
+    color: #000000;
+}
+
+.form-div-memberapi2{
+    display: flex;
+    position: relative;
+    padding: 2vh 0 0;
+    margin-top: 5%;
+    flex-direction: column;
+    align-items: center;
+}
+
+.form_memberapi_field{
+    border: 0;
+    border-bottom: 2px solid #B8B8B8;
+    outline: 0;
+    font-size: 1.5rem;
+    color: white;
+    padding: 7px 0;
+    background: transparent;
+    transition: border-color 0.2s;
+    width: 600px;
+}
+
+.form_memberapi_field option{
+    color: black;
+}
+
+.h1wait{
+    color: white;
+    text-align: -webkit-center;
+    font-family: 'Roboto Flex';
+    font-style: normal;
+    font-weight: 400;
+}
+
+.fa-spinner{
+    font-size: 100px;
+    color: white;
+    margin-top: 30px;
+    margin-bottom: 30px;
+    animation: spinner 2.5s infinite linear;
+}
+
+@keyframes spinner{
+    from{transform: rotate(0);}
+    to{transform: rotate(360deg);}
+}
+
+body.light .fa-spinner, body.light .h1wait{
+    color: black;
+}

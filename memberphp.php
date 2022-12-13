@@ -11,7 +11,6 @@ session_start ();
             require_once "includes/nav.php"; //---Inclus la navbar---//
         ?>
 
-        <div>API</div>
         <div class="container-upload">
 
             <h1>Votre musique à bien été envoyé</h1>

@@ -200,7 +200,7 @@ require_once "includes/header.php"; //---Inclus le header + ouvre le body---//
 
             function exit() {
                 // on redirige après 2s vers la page member
-                // window.location.replace("http://5.135.101.252/audomavoix/memberapi.php")
+                 window.location.replace("http://5.135.101.252/audomavoix/memberapi.php")
                 //    window.location.replace("http://localhost/audomavoix/memberapi.php");
             }
         }
