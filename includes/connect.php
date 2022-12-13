@@ -2,8 +2,8 @@
 
 $dbname = "audomavoix";     // nom de la bdd
 $dbhost = "localhost";      // url de la bdd
-$dbpass = "root";           // user de la bdd
-$dbuser = "root";           // mdp de la bdd
+$dbpass = "Greta1234!";     // user de la bdd
+$dbuser = "greta";          // mdp de la bdd
 // test en try and catch
 try {
     // nom de votre choix pour la variable , dsn = data source name
