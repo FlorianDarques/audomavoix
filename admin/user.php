@@ -27,6 +27,11 @@ $optionstage = $_POST["optradiostage"];
 $sql = "UPDATE `Inscription` SET `stage`='$optionstage' WHERE `IDuser` = '$id'";
 $query = $db->prepare($sql);
 $query->execute();
+    if($optionstage == 1){
+        $sql = "DELETE FROM `files` WHERE ID_member = '$id'";
+        $query = $db->prepare($sql);
+        $query->execute();
+    }
     header("Location: index.php");
 }
 ?>

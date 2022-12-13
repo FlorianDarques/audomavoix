@@ -10,10 +10,14 @@
         }
     }  
     if(isset($_SESSION["user"])){
-      //  echo '<pre>' . print_r($_SESSION, TRUE) . '</pre>'; 
+      // echo '<pre>' . print_r($_SESSION, TRUE) . '</pre>'; 
         $id = $_SESSION["user"]["id"];
-    if(isset($_POST['button'])){
         require "includes/connect.php";
+        $sql = "SELECT `song`, `author`, `IDuser` FROM `Inscription` WHERE IDuser = '$id'";
+        $query = $db->prepare($sql);
+        $query->execute();
+        $donnees = $query->fetch();
+    if(isset($_POST['button'])){
         $sql = "UPDATE `Inscription` SET `stage`='4' WHERE IDuser = '$id'";
         $query = $db->prepare($sql);
         $query->execute();
@@ -33,8 +37,13 @@
     <?php
     require_once "includes/nav.php"; //---Inclus la navbar---//
     ?>
+    
+    <div class="container-upload">
+    <h1>Votre choix musical</h1>
+    <p>Auteur:<?= " " ?><span style="text-decoration: underline"><?=$donnees["author"];?></span></p>
+    <p>Chanson:<?=" "?><span style="text-decoration: underline"><?=$donnees["song"];?></span></p>
+    </div>
 
-    <div>API</div>
     <div class="container-upload">
 
         <h1>Joignez votre enregistrement</h1>

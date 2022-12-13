@@ -17,16 +17,20 @@ if(isset($_SESSION["stage"])){
     }
 }  
 ?>
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-    <p>En attente d'une validation de l'administration</p>
-    <a href="deconnexion.php">Deconnexion</a>
-</body>
-</html>
+<?php 
+    require_once "includes/header.php";
+?>
+
+    <div class="background_video">
+    <video autoplay muted loop src="video/bg.mp4"></video>
+
+<?php
+    require_once "includes/nav2.php"; //---Inclus la navbar---//
+?>
+<div class="inscription_box">
+    <h1 class="h1wait">En attente d'une validation de l'administration</h1>
+    <i class="fa-solid fa-spinner"></i>
+</div>
+    <?php
+    require_once "includes/footer.php"; //---Inclus le footer + ferme le body et html---//
+?>
