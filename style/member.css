@@ -57,3 +57,8 @@ body.light .button-upload{
     background: rgba(0, 0, 0, 0.7);
     color: white;
 }
+
+.cheque{
+    width: 750px;
+    margin: 15px;
+}
