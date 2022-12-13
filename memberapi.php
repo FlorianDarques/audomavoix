@@ -12,7 +12,7 @@ if(isset($_SESSION["stage"])){
 if(isset($_SESSION["user"])){
    // echo '<pre>' . print_r($_SESSION, TRUE) . '</pre>'; 
     $id = $_SESSION["user"]["id"];
-    if($_SESSION["user"] > ["age" => "18"]){
+    if($_SESSION["user"]["age"] < 18){
         require "includes/connect.php";
         $sql = "SELECT * FROM `representant` WHERE `IDmember` = '$id'";
                 $query = $db->prepare($sql);
@@ -22,7 +22,8 @@ if(isset($_SESSION["user"])){
             header("Location: replegal.php");
         }
         else{
-
+        }
+    }
 $curl = curl_init();
 $name_music = str_replace(" ", "%20", $_GET["music"]);
 $url = "https://shazam.p.rapidapi.com/search?term=".$name_music."&locale=en-US&offset=0&limit=5";
@@ -56,8 +57,7 @@ if ($err) {
 } 
 
         } 
-    }
-}
+
     ?>
 
 
