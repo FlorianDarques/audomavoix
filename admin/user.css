@@ -69,3 +69,7 @@ body {
     cursor: pointer;
     border: solid 1px #BA68C8
 }
+
+.form-control2{
+    border: none !important;
+}

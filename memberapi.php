@@ -12,7 +12,16 @@ if(isset($_SESSION["stage"])){
 if(isset($_SESSION["user"])){
    // echo '<pre>' . print_r($_SESSION, TRUE) . '</pre>'; 
     $id = $_SESSION["user"]["id"];
-}
+    if($_SESSION["user"] > ["age" => "18"]){
+        require "includes/connect.php";
+        $sql = "SELECT * FROM `representant` WHERE `IDmember` = '$id'";
+                $query = $db->prepare($sql);
+                $query->execute();
+                $userUnder18 = $query->fetch();
+        if(empty($userUnder18)){
+            header("Location: replegal.php");
+        }
+        else{
 
 $curl = curl_init();
 $name_music = str_replace(" ", "%20", $_GET["music"]);
@@ -46,8 +55,9 @@ if ($err) {
 	echo "cURL Error #:" . $err;
 } 
 
-
-
+        } 
+    }
+}
     ?>
 
 
@@ -66,7 +76,7 @@ if ($err) {
 <div class="inscription_box">
     <form action="" method="get" class="the-form">
         <div class="form-div-memberapi form_inscription_group">
-        <input type="text" class="form-memberapi" name="music" id="">
+        <input type="text" class="form-memberapi" name="music" id="" placeholder="Rechercher">
 
         <button type="submit" class="button-memberapi"><i class="fa-solid fa-magnifying-glass"></i></button>
         </div>
@@ -94,7 +104,6 @@ if ($err) {
     }
     if (!empty($_POST)) {
         $list = explode('»', $_POST["choise_music"]);
-        require "includes/connect.php";
             
             $query = $db->prepare("INSERT INTO `files`(`key_music`, `ID_member`) VALUES(:key_music, :id)");
             $query->bindValue(':key_music', $list[0], PDO::PARAM_STR);

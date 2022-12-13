@@ -3,8 +3,6 @@ session_start();
 if (!$_SESSION["admin"]) {
     header("Location: ../index.php");
 }
-// l'echo permet de voir les $_SESSION
-// echo '<pre>' . print_r($_SESSION, TRUE) . '</pre>'; 
 $IDpage = $_GET['Id']; // On récupère l'ID sur la barre HTML
 require "../includes/connect.php";
 $sql = "SELECT * FROM `Member`, `Inscription` WHERE Member.id = Inscription.IDuser AND Inscription.IDuser = '$IDpage'";
@@ -20,7 +18,10 @@ $email = $_SESSION['pageuser']['4'];
 $author = $_SESSION['pageuser']['5'];
 $song = $_SESSION['pageuser']['6'];
 $stage = $_SESSION['pageuser']['7'];
-
+$sql = "SELECT * FROM `files` WHERE ID_member = '$IDpage'";
+$query = $db->prepare($sql);
+$query->execute();
+$valueFile = $query->fetch();
 
 if(isset($_POST["optradiostage"]) && !empty($_POST["optradiostage"])){
 $optionstage = $_POST["optradiostage"];
@@ -34,6 +35,8 @@ $query->execute();
     }
     header("Location: index.php");
 }
+// l'echo permet de voir les $_SESSION
+// echo '<pre>' . print_r($_SESSION, TRUE) . '</pre>'; 
 ?>
 
 
@@ -110,25 +113,25 @@ $query->execute();
                     </div>
                     <div class="col-md-12">
                     <label class="form-check-label" for="radio3">Étape 3</label><br>    
-                    <input type="radio" class="form-check-input" id="radio1" name="optradiostage" value="5"
+                    <input type="radio" class="form-check-input" id="radio1" name="optradiostage" value="6"
                     <?php 
-                        if($stage !== 6){
+                        if($stage !== 5 & $stage !== 6){
                             echo "disabled";
                         }
-                        if($stage == 6){
+                        if($stage == 5 || $stage == 6){
                             echo "checked";
                         }
                     ?>>Refuser
                     <input type="radio" class="form-check-input" id="radio2" name="optradiostage" value="7"
                     <?php 
-                        if($stage !== 6){
+                        if($stage !== 5 && $stage !== 6){
                             echo "disabled";
                         }
                     ?>>Accepter
                     </div>
                 </div>
                 <?php 
-                if($stage == 1 || $stage == 3 || $stage == 5 || $stage == 7){
+                if($stage == 1 || $stage == 3 || $stage == 5 || $stage == 6 || $stage == 7){
                 echo'<div class="row mt-3">
                     <div class="col-md-6"><label class="labels">Étape actuelle</label><input type="text" class="form-control"';
                     if($stage == 1){
@@ -137,7 +140,7 @@ $query->execute();
                     if($stage == 3){
                         $stage = "Envoyer sa chanson";
                     }
-                    if($stage == 5){
+                    if($stage == 5 || $stage == 6){
                         $stage = "Procéder au paiement";
                     }
                     if($stage == 7){
@@ -156,6 +159,11 @@ $query->execute();
                 <div class="d-flex justify-content-between align-items-center experience"><span>Choix Musical</span></i></span></div><br>
                 <div class="col-md-12"><label class="labels">Auteur</label><input type="text" class="form-control" placeholder="<?= $author ?>" value="" disabled></div> <br>
                 <div class="col-md-12"><label class="labels">Chanson</label><input type="text" class="form-control" placeholder="<?= $song?>" value="" disabled></div>
+               <?php
+                if($stage == 4 || $stage > 4){
+                echo '<div class="col-md-12"><label class="labels">MP3</label><audio class="form-control2 form-control" controls src="..';?><?= $valueFile["file_url"]?><?php echo'"></audio></div>';
+                }
+                ?>
             </div>
         </div>
     </div>

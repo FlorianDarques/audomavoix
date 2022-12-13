@@ -1,7 +1,7 @@
 <?php
 session_start();
 if(isset($_SESSION["stage"])){
-    if($_SESSION["stage"] != ["stage" => "2"] || $_SESSION["stage"] != ["stage" => "4"] || $_SESSION["stage"] != ["stage" => "6"]){
+    if($_SESSION["stage"] != ["stage" => "2"] || $_SESSION["stage"] != ["stage" => "4"]){
         if($_SESSION["stage"] == ["stage" => "1"]){
             header("Location: memberapi.php");
         }
@@ -9,10 +9,13 @@ if(isset($_SESSION["stage"])){
             header("Location: member.php");
         }
         else if($_SESSION["stage"] == ["stage" => "5"]){
-            header("Location: etape3.php");
+            header("Location: paiement.php");
+        }
+        else if($_SESSION["stage"] == ["stage" => "6"]){
+            header("Location: paiementrefus.php");
         }
         else if($_SESSION["stage"] == ["stage" => "7"]){
-            header("Location: etape4.php");
+            header("Location: facture.php");
         }
     }
 }  
