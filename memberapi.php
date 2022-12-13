@@ -30,7 +30,7 @@ curl_setopt_array($curl, [
 	CURLOPT_CUSTOMREQUEST => "GET",
 	CURLOPT_HTTPHEADER => [
 		"X-RapidAPI-Host: shazam.p.rapidapi.com",
-		"X-RapidAPI-Key: 0ad0c979ffmshc1647053033bcb0p1a0071jsn1dcd5dfe27ce"
+		"X-RapidAPI-Key: a686ab8425msh2443fc485de7c08p17cbe9jsnd64a4599be94"
 	],
 ]);
 
