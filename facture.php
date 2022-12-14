@@ -9,6 +9,7 @@ if(isset($_SESSION["stage"])){
     header("Location: wait.php");
     }
 }  
+
 require_once "includes/header.php"; //---Inclus le header + ouvre le body---//
 
 ?>
@@ -22,7 +23,10 @@ require_once "includes/header.php"; //---Inclus le header + ouvre le body---//
     ?>
 <div class="container-upload">
     <h1>Facture</h1>
+
+    <a href="downloadfacture.php" class="">Télécharger le PDF de la facture</a>
 </div>
 <?php
     require_once "includes/footer.php"; //---Inclus le footer + ferme le body et html---//
     ?>
+
