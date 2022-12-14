@@ -9,6 +9,9 @@ if(isset($_SESSION["stage"])){
     header("Location: wait.php");
     }
 }  
+if($_SESSION["user"]["age"] >= 18){
+    header("Location: wait.php");
+}
 
 if(isset($_SESSION["user"])){
     $id = $_SESSION["user"]["id"];

@@ -1,5 +1,14 @@
 <?php
 session_start();
+$id = $_SESSION["user"]["id"];
+require_once"includes/connect.php";
+$sql = "SELECT * FROM `Inscription` WHERE Inscription.IDuser = '$id'";
+            $query = $db->prepare($sql);
+            $query->execute();
+            $userstage = $query->fetch();
+            $_SESSION["stage"] = [
+                "stage" => $userstage["stage"]
+                ];
 if(isset($_SESSION["stage"])){
     if($_SESSION["stage"] != ["stage" => "2"] || $_SESSION["stage"] != ["stage" => "4"]){
         if($_SESSION["stage"] == ["stage" => "1"]){

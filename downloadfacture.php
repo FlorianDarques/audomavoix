@@ -8,13 +8,22 @@ ob_start();
 //     "age"=>$Age,
 //     "sexe"=>$Sexe,
 // ];
-$nomDuClient=$_SESSION['user']['lastname'];
-$prenomDuClient=$_SESSION['user']['firstname']; 
+$id = $_SESSION["user"]["id"];
+
+if ($_SESSION["user"]["age"] < 18) {
+    $nomDuClient=$_SESSION['repleg']["0"];
+    $prenomDuClient=$_SESSION['repleg']["1"];  
+}
+if($_SESSION["user"]["age"] >= 18){
+   $nomDuClient=$_SESSION['user']['lastname'];
+$prenomDuClient=$_SESSION['user']['firstname'];  
+}
+
 $numeroDeTelDuClient=$_SESSION['user']['email'];
 $date = "Facturé le " . date("d/m/Y") ;
 $facture="Facture n°". (rand(1, 10000) . "<br>");
 $prix="5€";
-$daterdv="a voir";
+$daterdv="25/12/2022";
 ?>
 <style>
  .premiertable{width: 100%; }
@@ -78,7 +87,7 @@ $daterdv="a voir";
             <td style="text-align:center; margin-top:10px;">
                 Nous vous confirmons la réception de votre paiement d'un montant de <?php echo $prix ?>.<br><br>
                 Nous vous invitons a vous présentez le <?php echo $daterdv ?> pour votre prestation.<br><br>
-                Veuillez recevoir l'assurance de ma considération distinguée.<br><br>
+                Veuillez recevoir mes salutations distingués.<br><br>
                 Audomavoix <br><br><br><br>
             </td>
         </tr>

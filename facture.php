@@ -9,7 +9,19 @@ if(isset($_SESSION["stage"])){
     header("Location: wait.php");
     }
 }  
+$id = $_SESSION["user"]["id"];
+if ($_SESSION["user"]["age"] < 18) {
+    require_once"includes/connect.php";
+    $sql = "SELECT * FROM `representant` WHERE `IDmember` = '$id'";
+    $query = $db->prepare($sql);
+    $query->execute();
+    $userUnder18 = $query->fetch();
 
+    $_SESSION["repleg"] = [
+          $userUnder18["nom"],
+          $userUnder18["prenom"]
+    ];
+}
 require_once "includes/header.php"; //---Inclus le header + ouvre le body---//
 
 ?>
