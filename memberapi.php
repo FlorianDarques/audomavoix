@@ -73,16 +73,17 @@ if ($err) {
 ?>
 
 
-<div class="inscription_box">
-    <form action="" method="get" class="the-form">
-        <div class="form-div-memberapi form_inscription_group">
+<div class="memberapi_box">
+    <h1 class="h1_memberapi">Sélection du titre</h1>
+    <form action="" method="get" class="the-form-api">
+        <div class="form-div-memberapi form_api_group">
         <input type="text" class="form-memberapi" name="music" id="" placeholder="Rechercher">
 
         <button type="submit" class="button-memberapi"><i class="fa-solid fa-magnifying-glass"></i></button>
         </div>
     </form>
 
-<form action="" method="post" class="the-form">
+<form action="" method="post" class="the-form-api">
     <div class="form-div-memberapi2">
         <select name="choise_music" class="form_memberapi_field" id="">
 
