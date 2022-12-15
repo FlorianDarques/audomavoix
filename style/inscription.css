@@ -1,5 +1,5 @@
 .inscription_box {
-    width: 40%;
+    width: 350px;
     background: rgba(0, 0, 0, 0.7);
     margin: auto;
     margin-top: 5vh;
@@ -114,4 +114,24 @@ to{opacity: 1;
 @keyframes anim-hidden-all{
     from{visibility: hidden;}
     to{visibility: hidden;}
+}
+
+@media screen and (max-width: 360px) {
+    .inscription_box{
+        width: 230px;
+    }
+    .h1_inscription{
+        font-size: unset;
+    }
+    .form_inscription_group{
+        width: 100%;
+        display: flex;
+        justify-content: center;
+    }
+    .form_inscription_field{
+        width: 70%;
+    }   
+    .form_inscription_label{
+        width: unset !important;
+    }
 }

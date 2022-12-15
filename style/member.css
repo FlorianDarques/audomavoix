@@ -2,7 +2,7 @@
     margin: auto;
     margin-top: 10vh;
     padding: 1%;
-    width: 50%;
+    width: 300px;
     background: rgba(0, 0, 0, 0.7);
     color: white;
     border-radius: 25px;
@@ -12,6 +12,10 @@
 
     /* display: none; */
 
+}
+
+.h1-member{
+    font-size: 19px;
 }
 
 .fileofmp3::file-selector-button {
@@ -59,6 +63,82 @@ body.light .button-upload{
 }
 
 .cheque{
-    width: 750px;
+    width: 500px;
     margin: 15px;
 }
+.container-paiement{
+    width: 500px !important;
+    padding: 20px;
+}
+.h1-paiement{
+    font-size: 38px;
+}
+@media screen and (max-width: 300px) {
+    .container-upload{
+        width: 250px;
+    }
+    .h1-member {
+        font-size: 17px;
+    }
+    .button-upload{
+        width: 200px;
+    }
+}
+@media screen and (max-width: 520px) {
+    .container-paiement{
+        width: 290px!important;
+        margin-bottom: 42px;
+    }
+    .h1-paiement{
+        font-size: 19px;
+    }
+    .cheque{
+        width: 290px;
+    }
+}
+@media screen and (max-width: 310px) {
+    .container-paiement{
+        width: 240px!important;
+        margin-bottom: 0px;
+    }
+    .h1-paiement{
+        font-size: 19px;
+    }
+    .cheque{
+        width: 240px;
+    }
+}
+
+input[type=checkbox] {
+    display: none;
+  }
+  
+  .containero img {
+    transition: transform 0.25s ease;
+    cursor: zoom-in;
+  }
+  
+  input[type=checkbox]:checked ~ .labelzoom > .cheque {
+    transform: scale(2);
+    cursor: zoom-out;
+  }
+
+  .container-felicitation{
+    width: 50% !important;
+    padding: 20px !important;
+    min-width: 300px;
+  }
+
+  .container-facture{
+    padding: 20px !important;
+  }
+  .h1-facture{
+    font-size: 38px;
+  }
+
+  @media screen and (max-width: 300px) {
+    .container-felicitation{ 
+        width: 250px !important;
+        min-width: unset !important;
+    }
+  }

@@ -1,6 +1,7 @@
 <nav class="navbar navbar-expand-lg navbar-light bg-navbar-perso">
     <a href="../../audomavoix/index.php" class="navbar-brand mb-0 h1">
         <img class="d-inline-block align-top logo-av" src="../../audomavoix/img/Logo.svg" >
+        <img class="d-inline-block align-top logo-av2" src="../../audomavoix/img/Logopetit.svg" >
     </a>
 
     <div class="collapse navbar-collapse" id="navbarNavDropdown">
