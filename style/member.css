@@ -36,6 +36,8 @@
     flex-direction: column;
     gap: 1em;
     align-items: center;
+    width: 100%;
+    overflow: hidden;
 }
 
 .button-upload{

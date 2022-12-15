@@ -69,10 +69,10 @@ if (!empty($_POST)) {
         <?php 
             require_once "includes/nav.php"; //---Inclus la navbar---//
         ?>
+        <div class="container-height">
+        <div class="connexion_box connexbox">
 
-        <div class="connexion_box">
-
-            <h1 class="h1_connexion">CONNEXION</h1>
+            <h1 class="h1_connexion h1connex">CONNEXION</h1>
 
             <form action="" method="POST" class="the-form">
 
@@ -106,3 +106,4 @@ if (!empty($_POST)) {
     require_once "includes/footer.php"; //---Inclus le footer + ferme le body et html---//
 ?>
     </div>
+</div>
