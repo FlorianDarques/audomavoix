@@ -1,4 +1,3 @@
-@media screen and (min-width: 0px) {
 .bg-navbar-perso {
     background: rgba(0, 0, 0, 0.7);
 }
@@ -45,5 +44,15 @@ body.light .navbar-nav li {
 body.light .navbar-nav li a i {
     color: black;
 }
-
+.logo-av2{
+    display: none!important;
+}
+@media screen and (max-width: 500px) {
+    .logo-av2{
+        display: unset!important;
+        margin-left: 0.5em;
+    }
+    .logo-av{
+        display: none!important;
+    }
 }

@@ -32,10 +32,10 @@
             $file_destbdd = '/files/'.$file_name;
             $file_error = $_FILES["file_mp3"]["error"];
             
-            echo "Nom: ".$file_name. "</br>";
+           /* echo "Nom: ".$file_name. "</br>";
             echo "Extension: ".$file_extension. "</br>";
             echo "Erreur: ".$file_error. "</br>";
-            echo "Destination: ".$file_dest. "</br>";
+            echo "Destination: ".$file_dest. "</br>"; */
             
             $extention_accept = array('.mp3', '.MP3');
             if (in_array($file_extension, $extention_accept) && $file_error === 0){
@@ -90,16 +90,16 @@
     <?php
     require_once "includes/nav2.php"; //---Inclus la navbar---//
     ?>
-    
+    <div class="container-height">
     <div class="container-upload">
-    <h1>Votre choix musical</h1>
+    <h1 class="h1-member">Votre choix musical</h1>
     <p>Auteur:<?= " " ?><span style="text-decoration: underline"><?=$donnees["author"];?></span></p>
     <p>Chanson:<?=" "?><span style="text-decoration: underline"><?=$donnees["song"];?></span></p>
     </div>
 
     <div class="container-upload">
 
-        <h1>Joignez votre enregistrement</h1>
+        <h1 class="h1-member">Joignez votre enregistrement</h1>
 
         <form action="" method="post" enctype="multipart/form-data" class="form-upload">
             <label class="labelmp3" for="fileInput"><i class="fa-solid fa-download"></i></label>
@@ -117,6 +117,6 @@
     require_once "includes/footer.php"; //---Inclus le footer + ferme le body et html---//
     ?>
 </div>
-
+</div>
 
 </div>

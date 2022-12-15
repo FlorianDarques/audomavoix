@@ -39,10 +39,12 @@ if(isset($_SESSION["stage"])){
 <?php
     require_once "includes/nav2.php"; //---Inclus la navbar---//
 ?>
-<div class="inscription_box">
+<div class="container-height">
+<div class="inscription_box wait_box">
     <h1 class="h1wait">En attente d'une validation de l'administration</h1>
     <i class="fa-solid fa-spinner"></i>
 </div>
     <?php
     require_once "includes/footer.php"; //---Inclus le footer + ferme le body et html---//
 ?>
+</div>

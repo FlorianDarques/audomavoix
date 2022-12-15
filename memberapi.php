@@ -73,7 +73,7 @@ if ($err) {
     require_once "includes/nav2.php"; //---Inclus la navbar---//
 ?>
 
-
+<div class="container-height">
 <div class="memberapi_box">
     <h1 class="h1_memberapi">Sélection du titre</h1>
     <form action="" method="get" class="the-form-api">
@@ -154,3 +154,4 @@ if ($err) {
     <?php
     require_once "includes/footer.php"; //---Inclus le footer + ferme le body et html---//
     ?>
+    </div>

@@ -60,24 +60,24 @@ require_once "includes/header.php"; //---Inclus le header + ouvre le body---//
     <?php
     require_once "includes/nav2.php"; //---Inclus la navbar---//
     ?>
+<div class="container-height">
+<div class="repleg_box">
 
-<div class="connexion_box">
-
-<h1 class="h1_connexion">Ajouter un représentant légal</h1>
+<h1 class="h1_repleg">Ajouter un représentant légal</h1>
 
 <form action="" method="POST" class="the-form">
 
-    <div class="form_connexion_group">
+    <div class="form_repleg_group">
 
-        <input type="text" class="form_connexion_field" placeholder="Adresse email" name="rep-nom" required>
-        <label for="rep-nom" class="form_connexion_label"></i> Nom</label>
+        <input type="text" class="form_connexion_field form_repleg_field" placeholder="Adresse email" name="rep-nom" required>
+        <label for="rep-nom" class="form_connexion_label form_repleg_label"></i> Nom</label>
 
     </div>
 
-    <div class="form_connexion_group">
+    <div class="form_repleg_group">
 
-        <input type="text" class="form_connexion_field" placeholder="Mot de passe" name="rep-prenom" required>
-        <label for="rep-prenom" class="form_connexion_label"></i> Prénom</label>
+        <input type="text" class="form_connexion_field form_repleg_field" placeholder="Mot de passe" name="rep-prenom" required>
+        <label for="rep-prenom" class="form_connexion_label form_repleg_label"></i> Prénom</label>
 
     </div>
     <div class="btn_connexion">
@@ -91,7 +91,8 @@ require_once "includes/header.php"; //---Inclus le header + ouvre le body---//
 </form>
 
 </div>
-
 <?php
     require_once "includes/footer.php"; //---Inclus le footer + ferme le body et html---//
 ?>
+</div>
+

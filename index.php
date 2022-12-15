@@ -14,7 +14,7 @@ if (isset($_SESSION["user"])) {
         <?php 
             require_once "includes/nav.php"; //---Inclus la navbar---//
         ?>
-
+        <div class="container-height">
         <div class="presentation_box">
 
             <h1 class="h1_title">Title</h1>
@@ -38,7 +38,9 @@ if (isset($_SESSION["user"])) {
         <a href="inscription.php" class="a_inscription">S'enregistrer</a>
 
         </div>
-    <?php
+        <?php
         require_once "includes/footer.php"; //---Inclus le footer + ferme le body et html---//
-    ?>
+        ?>
+        </div>
+    
     </div>

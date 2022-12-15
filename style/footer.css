@@ -1,11 +1,11 @@
-@media screen and (min-width:0px) {
+
 .container-footer {
     display: flex;
     align-items: flex-end;
     flex-direction: row;
+    height: 28%;
 }
 .container-footer div {
-    position: fixed;
     display: flex;
     justify-content: center;
     width: 100%; 
@@ -17,10 +17,25 @@
 .singer{
     position: fixed;
     bottom: 0;
+    width: 15%;
+    max-width: 200px;
 }
-}
+
 @media screen and (max-width:550px){
     .singer{
-        display: none;
+      /*  display: none; */
+      position: absolute;
+      bottom: unset;
+    }
+}
+@media screen and (max-width:375px){
+    .singer{
+      /*  display: none; */
+      display: none;
+    }
+}
+@media screen and (max-width: 300px){
+    .container-footer div{
+    font-size: 12px;
     }
 }

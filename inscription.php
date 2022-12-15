@@ -108,7 +108,7 @@ require_once "includes/header.php"; //---Inclus le header + ouvre le body---//
     <?php
     require_once "includes/nav.php"; //---Inclus la navbar---//
     ?>
-
+    <div class="container-height">
     <?php
     if (isset($_SESSION["error"])) {
         foreach ($_SESSION["error"] as $message) {
@@ -189,6 +189,7 @@ require_once "includes/header.php"; //---Inclus le header + ouvre le body---//
     <?php
     require_once "includes/footer.php"; //---Inclus le footer + ferme le body et html---//
     ?>
+    </div>
     <script type="text/javascript">
         // on récupère la var "valid" qui contient 1, elle prouve que l'inscription est validée
         var data = "<?php echo $valid; ?>";
