@@ -25,6 +25,7 @@ btnDarkMode.addEventListener("click", () => {
         localStorage.setItem("darkmode", "dark") 
         document.querySelector('.fa-sun').className = "fa-regular fa-moon"
         document.querySelector('.logo-av').src="../../audomavoix/img/Logo.svg"
+        document.querySelector('.logo-av2').src="../../audomavoix/img/Logopetit.svg"
         body.classList.remove("light");
     } 
     else if (body.classList.contains("dark")){
@@ -32,6 +33,7 @@ btnDarkMode.addEventListener("click", () => {
         localStorage.setItem("darkmode", "light") 
         document.querySelector('.fa-moon').className = "fa-regular fa-sun"
         document.querySelector('.logo-av').src="../../audomavoix/img/Logo-Black.svg"
+        document.querySelector('.logo-av2').src="../../audomavoix/img/Logopetit2.svg"
         body.classList.remove("dark");
     }
 })      
@@ -40,6 +42,7 @@ btnDarkMode.addEventListener("click", () => {
         localStorage.setItem("darkmode", "light") 
         document.querySelector('.fa-moon').className = "fa-regular fa-sun"
         document.querySelector('.logo-av').src="../../audomavoix/img/Logo-Black.svg"
+        document.querySelector('.logo-av2').src="../../audomavoix/img/Logopetit2.svg"
         body.classList.remove("dark");
     } 
     else if(wichDarkMode === "dark"){
@@ -47,5 +50,6 @@ btnDarkMode.addEventListener("click", () => {
         localStorage.setItem("darkmode", "dark") 
         document.querySelector('.fa-sun').className = "fa-regular fa-moon"
         document.querySelector('.logo-av').src="../../audomavoix/img/Logo.svg"
+        document.querySelector('.logo-av2').src="../../audomavoix/img/Logopetit.svg"
         body.classList.remove("light");
     }

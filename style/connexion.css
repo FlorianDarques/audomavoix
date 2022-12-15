@@ -114,3 +114,16 @@ body.light .connexion_btn{
 body.light .form_connexion_field{
     border-bottom-color: #7e7e7e;
 }
+
+.connexbox{
+    width: 350px!important;
+}
+
+@media screen and (max-width: 360px) {
+    .connexbox{
+        width: 250px!important;
+    }
+    .h1connex{
+        font-size: 38px;
+    }
+}

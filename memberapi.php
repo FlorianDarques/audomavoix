@@ -41,7 +41,7 @@ curl_setopt_array($curl, [
 	CURLOPT_CUSTOMREQUEST => "GET",
 	CURLOPT_HTTPHEADER => [
 		"X-RapidAPI-Host: shazam.p.rapidapi.com",
-		"X-RapidAPI-Key: 6a61b4f15dmsh9931e1a7a9d14eap1e658djsnc8ab3f62286b"
+		"X-RapidAPI-Key: a686ab8425msh2443fc485de7c08p17cbe9jsnd64a4599be94"
 
 	],
 ]);
@@ -144,9 +144,9 @@ if ($err) {
     ?>
 
         </select>
-        <div class="container-button-memberapi">
+        
         <button type="submit" class="button-memberapi-validate" >Valider</button>
-        </div>
+        
     </div>
         
 </form>

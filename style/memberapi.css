@@ -42,6 +42,15 @@
     font-size: 32px;
     line-height: 38px;
     color: #000000;
+    background: #D9D9D9;
+    border-radius: 50px;
+    width: 250px;
+    height: 53.65px;
+    margin-top: 30px;
+}
+
+body.light .button-memberapi-validate{
+    background: black;
 }
 
 .form-div-memberapi2{
@@ -182,4 +191,12 @@ body.light .form_memberapi_field, body.light .form-memberapi, body.light .button
 
     .wait_box{
         margin-bottom: 270px !important;
+        padding: 10px;
     }
+
+body.light .memberapi_box{
+    background: rgba(255, 255, 255, 0.7);
+}
+body.light .h1_memberapi{
+    color: black;
+}
