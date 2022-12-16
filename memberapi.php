@@ -42,7 +42,7 @@ curl_setopt_array($curl, [
 	CURLOPT_CUSTOMREQUEST => "GET",
 	CURLOPT_HTTPHEADER => [
 		"X-RapidAPI-Host: shazam.p.rapidapi.com",
-		"X-RapidAPI-Key: a686ab8425msh2443fc485de7c08p17cbe9jsnd64a4599be94"
+		"X-RapidAPI-Key: a0621c83b9msh04720fe9002912ap109f36jsn88184b700905"
 
 	],
 ]);
@@ -101,12 +101,20 @@ if ($err) {
     ?>
 
             <option value="<?php echo $key . "☯" . $title . "☯" . $artist; ?>"><?php echo $title." par ".$artist; ?></option>
-        
     <?php
     }
     }
     if (!empty($_POST)) {
         $list = explode('☯', $_POST["choise_music"]); // nous permet de séparer chaque value du post choise music, ces données sont séparées par '☯'
+        require_once "includes/connect.php";
+        $sql = "SELECT * FROM `files` WHERE `key_music` = $list[0]";
+        $query = $db->prepare($sql);
+        $query -> execute();
+        $datasong = $query -> fetch();
+        if(!empty($datasong)){
+            $erreur = 1;
+        }
+        if(empty($datasong)){
         require_once "includes/connect.php";
             $query = $db->prepare("INSERT INTO `files`(`key_music`, `ID_member`) VALUES(:key_music, :id)");
             $query->bindValue(':key_music', $list[0], PDO::PARAM_STR);
@@ -140,14 +148,14 @@ if ($err) {
     
             $_SESSION["user_message"] = "Veuillez sélectionner une musique.";
     
-        }
-        
+        } 
+    }
     ?>
 
         </select>
         
         <button type="submit" class="button-memberapi-validate" >Valider</button>
-        
+        <p><?php if($erreur === 1){ echo "Cette chanson a déjà était choisit";}?></p>
     </div>
         
 </form>

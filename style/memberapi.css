@@ -166,7 +166,7 @@ body.light .form_memberapi_field, body.light .form-memberapi, body.light .button
     position: relative;
     padding: 2vh 0 0;
     margin-top: 15%;
-    width: 50%; 
+    width: 100%; 
 }
 
 @media screen and (max-width: 360px) {
