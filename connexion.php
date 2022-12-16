@@ -24,6 +24,7 @@ if (!empty($_POST)) {
             $query->execute();
             $user = $query->fetch();
             if (!$user) {
+                // ici j'ai du refaire un select pour pouvoir trouver les comptes admins
                 $sql = "SELECT * FROM `Member` WHERE `email` = :email";
                 $query = $db->prepare($sql);
                 $query->bindValue(":email", $email, PDO::PARAM_STR);

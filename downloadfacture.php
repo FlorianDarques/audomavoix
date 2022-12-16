@@ -1,16 +1,11 @@
 <?php 
 session_start();
-ob_start();
-// $_SESSION['user']=[
-//     "Nom"=> $Nom,
-//     "Prenom" => $Prenom,
-//     "email"=> $Email,
-//     "age"=>$Age,
-//     "sexe"=>$Sexe,
-// ];
+ob_start(); // aucune donnée, hormis les en-têtes, n'est envoyée au navigateur, mais temporairement mise en tampon. On va renvoyer les données dans le OB get clean
+
 $id = $_SESSION["user"]["id"];
 
 if ($_SESSION["user"]["age"] < 18) {
+    // si l'âge est en dessous de 18 on va mettre le nom du rep légal plutôt que de l'utilisateur mineur.
     $nomDuClient=$_SESSION['repleg']["0"];
     $prenomDuClient=$_SESSION['repleg']["1"];  
 }
@@ -112,15 +107,18 @@ $daterdv="25/12/2022";
 
 
 <?php
-$content=ob_get_clean();
-require __DIR__.'/vendor/autoload.php';
+$content=ob_get_clean(); // Lit le contenu courant du tampon de sortie puis l'efface.
+require __DIR__.'/vendor/autoload.php'; // on va chercher le module de composer "html2pdf" qui nous permettra de générer un PDF 
 use Spipu\Html2Pdf\Html2Pdf;
 use Spipu\Html2Pdf\Exception\Html2PdfException;
 use Spipu\Html2Pdf\Exception\ExceptionFormatter;
 try{
+    // ici c'est un peu comme le connect au BDD  
     $html2pdf = new Html2Pdf('P', 'A4', 'fr', true, 'UTF-8');
     $html2pdf->pdf->SetDisplayMode('fullpage');
+    // on insère dans le writeHTML la variable $content qui contenait tout notre code 
     $html2pdf->writeHTML($content);
+    // ici on nomme le fichier qui en sortira
     $html2pdf->output('facture.pdf','D');
     
 }catch(Html2PdfException $e){

@@ -88,7 +88,7 @@ if (!empty($_POST)) {
                 // création d'une session validate
                 $_SESSION["validate"] = [];
                 if ($_SESSION["validate"] === []) {
-                    $valid = 1;
+                    $valid = 1; // on utilise cette variable pour confirmer l'inscription et la renvoyer vers un script JS
                 }
             }
         }

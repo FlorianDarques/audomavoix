@@ -13,6 +13,7 @@ if(isset($_SESSION["stage"])){
     $id = $_SESSION["user"]["id"];
 
     if($_SESSION["user"]["age"] < 18){
+        // verification de l'âge si en dessous de 18 ans et qu'aucune donnée n'a été récupéré, alors on va renvoyer le mineur vers la page replegal.php 
         require_once "includes/connect.php";
         $sql = "SELECT * FROM `representant` WHERE `IDmember` = '$id'";
                 $query = $db->prepare($sql);
@@ -105,7 +106,7 @@ if ($err) {
     }
     }
     if (!empty($_POST)) {
-        $list = explode('☯', $_POST["choise_music"]);
+        $list = explode('☯', $_POST["choise_music"]); // nous permet de séparer chaque value du post choise music, ces données sont séparées par '☯'
         require_once "includes/connect.php";
             $query = $db->prepare("INSERT INTO `files`(`key_music`, `ID_member`) VALUES(:key_music, :id)");
             $query->bindValue(':key_music', $list[0], PDO::PARAM_STR);

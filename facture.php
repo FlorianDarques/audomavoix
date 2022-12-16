@@ -22,6 +22,7 @@ if ($_SESSION["user"]["age"] < 18) {
           $userUnder18["prenom"]
     ];
 }
+
 require_once "includes/header.php"; //---Inclus le header + ouvre le body---//
 
 ?>

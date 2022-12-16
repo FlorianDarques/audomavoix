@@ -22,9 +22,11 @@ if(isset($_SESSION["user"])){
                 $query->execute();
                 $userUnder18 = $query->fetch();
         if(!empty($userUnder18)){
+            // si les données ne sont pas vide, alors l'utilisateur a déjà rentré des données, il est donc redirigé vers la page memberapi. 
             header("Location: memberapi.php");
         }
         else{ 
+            // on récup les données du rep légal inscrite dans le form
             $nom = $_POST["rep-nom"];
             $prenom = $_POST["rep-prenom"];
             $_SESSION["error"] = [];
@@ -35,6 +37,7 @@ if(isset($_SESSION["user"])){
                 $_SESSION["error"][] = "Le prénom est trop court";
             }
             if($_SESSION["error"] === []){
+                // on insère ici le nom et prénom du rep legal dans la branche "represante" sur la BDD
             $sql = "INSERT INTO `representant`(`IDmember`, `nom`, `prenom`) VALUES ('$id',:nom,:prenom)";
             $query = $db->prepare($sql);
             $query->bindValue(":nom", $nom, PDO::PARAM_STR);

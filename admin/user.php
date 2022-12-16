@@ -25,10 +25,12 @@ $valueFile = $query->fetch();
 
 if(isset($_POST["optradiostage"]) && !empty($_POST["optradiostage"])){
 $optionstage = $_POST["optradiostage"];
+// on va ici mettre la valeur de l'input radio (refuser ou accepter) dans le "stage" sur MySQL
 $sql = "UPDATE `Inscription` SET `stage`='$optionstage' WHERE `IDuser` = '$id'";
 $query = $db->prepare($sql);
 $query->execute();
     if($optionstage == 1){
+        // Si la var option stage renvoie à l'étape 1 alors on supprime tous ce qu'il y a dans "files" sur MySQL
         $sql = "DELETE FROM `files` WHERE ID_member = '$id'";
         $query = $db->prepare($sql);
         $query->execute();

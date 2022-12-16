@@ -2,6 +2,7 @@
 session_start();
 $id = $_SESSION["user"]["id"];
 require_once"includes/connect.php";
+// on vérifie le "stage" de l'utilisateur
 $sql = "SELECT * FROM `Inscription` WHERE Inscription.IDuser = '$id'";
             $query = $db->prepare($sql);
             $query->execute();

@@ -19,7 +19,7 @@ let btnDarkMode = document.querySelector(".darkmode");
 console.log(btnDarkMode);
 
 btnDarkMode.addEventListener("click", () => {
-
+// au click on vérifie la classe du body, en fonction de son nom de classe, on lui case un dark mode ou un light mode, on store dans le localstorage le nom du mode.
     if (body.classList.contains("light")){
         body.classList.add("dark");
         localStorage.setItem("darkmode", "dark") 
@@ -38,6 +38,7 @@ btnDarkMode.addEventListener("click", () => {
     }
 })      
     if(wichDarkMode === "light"){
+        // on vérifie ici la valeur qu'on a recup dans la variable wichDarkMode et en fonction on case automatiquement un nom au body à chaque page.
         body.classList.add("light");
         localStorage.setItem("darkmode", "light") 
         document.querySelector('.fa-moon').className = "fa-regular fa-sun"
